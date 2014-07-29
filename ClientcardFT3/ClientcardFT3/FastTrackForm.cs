@@ -29,6 +29,9 @@ namespace ClientcardFB3
         Handshake portHandshake = (Handshake)Enum.Parse(typeof(Handshake), "None");
         int refreshTimeLeft = 30;
         int refreshTimeStart = 30;
+
+        const int defaultScaleRefreshTime = 10;
+        int scaleTimerCurrentValue = defaultScaleRefreshTime;
         //int rowIndex = 0;
 
         bool timerEnabled = false;
@@ -231,20 +234,12 @@ namespace ClientcardFB3
 
         private void StartTimer()
         {
-            if (timerEnabled)
-            {
-                refreshTimeLeft = refreshTimeStart;
-                tssStatus.Text = refreshTimeLeft.ToString();
-                tssStatus.BackColor = Color.LightGreen;
-                btnRefresh.Visible = true;
-                timer.Start();
-            }
-            else
-            {
-                tssStatus.BackColor = Color.LightGray;
-                tssStatus.Text = "Timer Disabled";
-            }
+            refreshTimeLeft = refreshTimeStart;
+            tssStatus.Text = refreshTimeLeft.ToString();
+            tssStatus.BackColor = Color.LightGreen;
+            timer.Start();
         }
+
 
         private void dgvFT_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
@@ -387,16 +382,33 @@ namespace ClientcardFB3
             {
                 timerEnabled = false;
                 BtnEnableDisableTimer.Text = "Enable Timer";
-                timer.Stop();
-                tssStatus.BackColor = Color.LightGray;
-                tssStatus.Text = "Timer Disabled";
+                ScaleTimer.Stop();
+                ScaleTimerLabel.Text = "Timer Disabled";
             }
             else
             {
                 timerEnabled = true;
                 BtnEnableDisableTimer.Text = "Disable Timer";
-                initScalePort();
-                StartTimer();
+                StartScaleTimer();
+            }
+        }
+
+        private void StartScaleTimer()
+        {            
+            initScalePort();
+            scaleTimerCurrentValue = defaultScaleRefreshTime;
+            ScaleTimerLabel.Text = scaleTimerCurrentValue.ToString();
+            ScaleTimer.Start();
+        }
+
+        private void ScaleTimer_Tick(object sender, EventArgs e)
+        {
+            scaleTimerCurrentValue--;
+            ScaleTimerLabel.Text = scaleTimerCurrentValue.ToString();
+            if (scaleTimerCurrentValue <= 0)
+            {
+                ScaleTimer.Stop();
+                StartScaleTimer();
             }
         }
 

@@ -1,1 +1,11 @@
 F:\Gayathri\Academics\GitHub\FastTrackProject\ClientCardFT3WithAllReferences\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csprojResolveAssemblyReference.cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.exe
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\bin\Debug\HidLibrary.dll
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.LoginForm.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.FastTrackForm.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.Properties.Resources.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csproj.GenerateResource.Cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.exe
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csprojResolveAssemblyReference.cache
