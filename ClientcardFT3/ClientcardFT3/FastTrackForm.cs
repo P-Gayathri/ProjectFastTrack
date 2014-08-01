@@ -9,6 +9,7 @@ using HidLibrary;
 using ClientcardFT3;
 
 
+
 namespace ClientcardFB3
 {
     public partial class FastTrackForm : Form
@@ -16,11 +17,11 @@ namespace ClientcardFB3
         TrxLog clsFT;
         DateTime curSvcDisplayDate;
         LoginForm frmLogIn;
-        
-         
+
+
 
         //SerialPort portScale;
-        Boolean scaleActive = false;
+        //Boolean scaleActive = false;
         //string portName = "";
         //int portBaudRate = 9600;
         Parity portParity = (Parity)Enum.Parse(typeof(Parity), "None");
@@ -30,12 +31,13 @@ namespace ClientcardFB3
         int refreshTimeLeft = 30;
         int refreshTimeStart = 30;
 
-        const int defaultScaleRefreshTime = 10;
-        int scaleTimerCurrentValue = defaultScaleRefreshTime;
+        const int defaultScaleRefreshTime = 10;                     //Timer for Automated scale feature <7-27-2014>
+        int scaleTimerCurrentValue= defaultScaleRefreshTime;                            //Timer for Automated scale feature <7-27-2014>
+
+        bool timerEnabled = true;
+  
+
         //int rowIndex = 0;
-
-        bool timerEnabled = false;
-
         enum ftcolumns
         { ID, Name, FamilySize, FoodList, ActualsLbs, TEFAPLbs, BabyLbs, SupplLbs }
 
@@ -45,6 +47,7 @@ namespace ClientcardFB3
             curSvcDisplayDate = DateTime.Today;
             PrefsChanged();
             //refreshTimeStart = refreshTimeLeft = CCFBPrefs.ServiceLogRefreshRate;
+
             frmLogIn = loginform;
             lblFBName.Text = CCFBPrefs.FoodBankName;
             clsFT = new TrxLog(CCFBGlobal.connectionString, false, true, false, false);
@@ -54,9 +57,12 @@ namespace ClientcardFB3
             dgvFT.Columns["colLbsTEFAP"].Visible = CCFBPrefs.EnableTEFAP;
             dgvFT.Columns["colLbsSuppl"].Visible = CCFBPrefs.EnableSupplemental;
 
-            initScalePort();
+            enableScaleFeature.Visible = ScaleTimer.Enabled = ScaleTimerLabel.Visible=BtnEnableDisableTimer.Visible = tbScaleWt.Visible = btnRefresh.Visible = CCFBPrefs.EnableFTscale;                   //Automated scale feature <7-27-2014>
+           
             fillForm();
             StartTimer();
+
+            enableScale.Enabled = false;
             //tbTotBabyDL.Visible = false;
         }
 
@@ -66,8 +72,8 @@ namespace ClientcardFB3
             tsslblMsg.Text = "";
             Application.DoEvents();
             string val = "";
-            clsFT.openForADate(curSvcDisplayDate,"");
-            int totEntries = 0; 
+            clsFT.openForADate(curSvcDisplayDate, "");
+            int totEntries = 0;
             int totStdLbs = 0;
             int totOtherLbs = 0;
             int totTEFAP = 0;
@@ -107,10 +113,10 @@ namespace ClientcardFB3
                     //Grid View
                     dgvFT.Rows.Add();
                     dvr = dgvFT.Rows[rowCount];
-                    dvr.Tag = clsFT.TrxId; 
+                    dvr.Tag = clsFT.TrxId;
 
                     string tmp;
-                    
+
                     foreach (DataGridViewColumn dgvCol in dgvFT.Columns)
                     {
                         if (dgvCol.DataPropertyName != null && dgvCol.DataPropertyName != "")
@@ -144,7 +150,7 @@ namespace ClientcardFB3
                                                     val = " 1 teen";
                                                 else
                                                     val = (clsFT.Teens + clsFT.Eighteen).ToString() + " teens";
-                                                    CCFBGlobal.AppendTextWithComma(ref tmp, val);
+                                                CCFBGlobal.AppendTextWithComma(ref tmp, val);
                                             }
                                             if (clsFT.Adults > 0)
                                             {
@@ -178,7 +184,7 @@ namespace ClientcardFB3
                             if (tmp != "")
                                 dvr.Cells[dgvCol.HeaderCell.ColumnIndex].Value = tmp;
                         }
-                        dvr.Cells[dgvCol.HeaderCell.ColumnIndex].Style.ForeColor = Color.Black; 
+                        dvr.Cells[dgvCol.HeaderCell.ColumnIndex].Style.ForeColor = Color.Black;
                     }
 
                     rowCount++;
@@ -204,7 +210,6 @@ namespace ClientcardFB3
             {
                 timer.Stop();
                 fillForm();
-                initScalePort();
                 StartTimer();
             }
         }
@@ -234,25 +239,30 @@ namespace ClientcardFB3
 
         private void StartTimer()
         {
+
             refreshTimeLeft = refreshTimeStart;
             tssStatus.Text = refreshTimeLeft.ToString();
             tssStatus.BackColor = Color.LightGreen;
             timer.Start();
-        }
 
+        }
 
         private void dgvFT_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             timer.Stop();
             tssStatus.BackColor = Color.Khaki;
-            tssStatus.Text ="EDITING";
-            btnRefresh.Visible = false;
+            tssStatus.Text = "EDITING";
+            //btnRefresh.Visible = false;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             initScalePort();
-            StartTimer();
+            StartScaleTimer();
+            timerEnabled = true;
+            BtnEnableDisableTimer.Text = "Disable Timer";
+            ScaleTimerLabel.BackColor = Color.PaleGreen;
+
         }
 
         private void dgvFT_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -293,7 +303,7 @@ namespace ClientcardFB3
                     dgvCellStyle.ForeColor = Color.Magenta;
                     tsslblMsg.Text = "Invalid number entered";
                 }
-                
+
             }
             else
             {
@@ -303,13 +313,13 @@ namespace ClientcardFB3
 
         private void dgvFT_KeyDown(object sender, KeyEventArgs e)
         {
-                CCFBGlobal.checkForIntOnKeyPress(e);
+            CCFBGlobal.checkForIntOnKeyPress(e);
         }
 
         private void FastTrackForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (dgvFT.Focused == true)
-            CCFBGlobal.checkForIntOnKeyPress(e);
+                CCFBGlobal.checkForIntOnKeyPress(e);
         }
 
         private void initScalePort()
@@ -323,48 +333,20 @@ namespace ClientcardFB3
             if (s.IsConnected)
             {
                 s.GetWeight(out weight, out isStable);
-                //s.DebugScaleData();
                 s.Disconnect();
-                tbScaleWt.Text= Convert.ToString(weight);  
+                tbScaleWt.Text = Convert.ToString(weight);
             }
             else
             {
-            
-                tbScaleWt.Text ="0.0";
-             
-            }
-        }
 
-         private void readScale()
-         {
-            if (scaleActive == true)
-            {
-                //Byte[] buf;
-                //tbScaleWt.Text = "";
-               // portScale.Write("500");
-                bool oktoread = true;
-                //while (oktoread)
-                //{
-                //    try
-                //    {
-                //        string message = portScale.ReadExisting();
-                //        if (message == "")
-                //        {
-                //            oktoread = false;
-                //        }
-                //        else
-                //        {
-                //            tbScaleWt.Text = message;
-                //        }
-                //    }
-                //    catch (TimeoutException) { Debug.Print("timed out"); oktoread = false; }
-                //}
+                tbScaleWt.Text = "0.0";
+
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            readScale();
+
         }
 
         private void FastTrackForm_Load(object sender, EventArgs e)
@@ -375,8 +357,7 @@ namespace ClientcardFB3
         private void tbScaleWt_TextChanged(object sender, EventArgs e)
         {
         }
-
-        private void BtnEnableDisableTimer_Click(object sender, EventArgs e)
+        private void BtnEnableDisableTimer_Click(object sender, EventArgs e)        //Automated Scale feature
         {
             if (timerEnabled)
             {
@@ -384,17 +365,19 @@ namespace ClientcardFB3
                 BtnEnableDisableTimer.Text = "Enable Timer";
                 ScaleTimer.Stop();
                 ScaleTimerLabel.Text = "Timer Disabled";
+                ScaleTimerLabel.BackColor = Color.Azure;
             }
             else
             {
+                StartScaleTimer();
                 timerEnabled = true;
                 BtnEnableDisableTimer.Text = "Disable Timer";
-                StartScaleTimer();
+                ScaleTimerLabel.BackColor = Color.PaleGreen;
             }
         }
 
         private void StartScaleTimer()
-        {            
+        {
             initScalePort();
             scaleTimerCurrentValue = defaultScaleRefreshTime;
             ScaleTimerLabel.Text = scaleTimerCurrentValue.ToString();
@@ -410,10 +393,65 @@ namespace ClientcardFB3
                 ScaleTimer.Stop();
                 StartScaleTimer();
             }
+        }                                                                                       // Automated Scale feature
+
+        private void dgvFT_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)   //Automated Scale feature
+        {
+
+
+        }
+
+        private void enableScaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enableScaleToolStripMenuItem1_Click(object sender, EventArgs e)                //Automated Scale feature
+        {
+            initScalePort();
+            btnRefresh.Visible = true;
+            tbScaleWt.Visible = true;
+            ScaleTimer.Enabled = true;
+            ScaleTimerLabel.Visible = true;
+            BtnEnableDisableTimer.Visible = true;
+
+            enableScale.Enabled = false;
+            disableScale.Enabled = true;
+        }
+        private void disableScaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnRefresh.Visible = false;
+            tbScaleWt.Visible = false;
+            ScaleTimer.Enabled = false;
+            ScaleTimerLabel.Visible = false;
+            BtnEnableDisableTimer.Visible = false;
+
+            enableScale.Enabled = true;
+            disableScale.Enabled = false;
+        }
+
+        private void dgvFT_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7)
+            {
+                DataGridViewRow dgvr = dgvFT.CurrentRow;
+                float weightReading = float.Parse(tbScaleWt.Text);
+                dgvr.Cells[e.ColumnIndex].Value = (int)Math.Round(weightReading);
+            }
+        }
     }
-}
+}                                                                                       
+
 
 
 

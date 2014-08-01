@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace ClientcardFT3
 {
- 
+
     public class USBScale
     {
         public bool IsConnected
@@ -38,7 +38,7 @@ namespace ClientcardFT3
         public HidDevice GetDevice()
         {
             HidDevice hidDevice;
-            
+
             hidDevice = HidDevices.Enumerate(0x1446, 0x6A73).FirstOrDefault();
             if (hidDevice != null)
                 return hidDevice;
@@ -80,7 +80,7 @@ namespace ClientcardFT3
                 scale.Dispose();
             }
         }
- 
+
         public void GetWeight(out decimal? weight, out bool? isStable)
         {
             weight = null;
@@ -95,11 +95,9 @@ namespace ClientcardFT3
                     Convert.ToDecimal(Math.Pow(10, (sbyte)inData.Data[3]));
 
                 Convert.ToInt16(inData.Data[2]);
-      
+
                 isStable = inData.Data[1] == 0x4;
             }
         }
     }
 }
-
-

@@ -38,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HidLibrary">
-      <HintPath>..\..\references\HidLibrary.dll</HintPath>
+      <HintPath>..\..\References\HidLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -92,7 +92,6 @@
     <Compile Include="..\..\ClientcardFB3\ClientcardFB3\Userlist.cs">
       <Link>Userlist.cs</Link>
     </Compile>
-    <Compile Include="USBScale.cs" />
     <Compile Include="FastTrackForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +100,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="USBScale.cs" />
     <EmbeddedResource Include="..\..\ClientcardFB3\ClientcardFB3\LoginForm.resx">
       <Link>LoginForm.resx</Link>
       <DependentUpon>LoginForm.cs</DependentUpon>
