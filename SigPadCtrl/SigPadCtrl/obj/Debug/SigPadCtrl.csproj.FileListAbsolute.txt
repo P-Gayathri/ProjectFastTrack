@@ -14,3 +14,12 @@ C:\Users\KCraig\Documents\Visual Studio 2010\Projects\SigPadCtrl\SigPadCtrl\obj\
 C:\Users\KCraig\Documents\Visual Studio 2010\Projects\SigPadCtrl\SigPadCtrl\obj\Debug\SigPadCtrl.pdb
 C:\Users\KCraig\Documents\Visual Studio 2010\Projects\SigPadCtrl\SigPadCtrl\bin\Debug\SigPlusNET.dll
 C:\Users\KCraig\Documents\Visual Studio 2010\Projects\SigPadCtrl\SigPadCtrl\bin\Debug\SigPadCtrl.dll.config
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\bin\Debug\SigPadCtrl.dll.config
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\bin\Debug\SigPadCtrl.dll
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\bin\Debug\SigPadCtrl.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Debug\SigPadCtrl.csproj.ResolveComReference.cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Debug\SigPadCtrl.Properties.Resources.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Debug\SigPadCtrl.SigPadInputCtrl.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Debug\SigPadCtrl.csproj.GenerateResource.Cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Debug\SigPadCtrl.dll
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Debug\SigPadCtrl.pdb

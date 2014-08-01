@@ -23,3 +23,13 @@ F:\Gayathri\FoodBankProjectSourcecode\FB3SourceBackup2014-02-25\SigPadCtrl\SigPa
 F:\Gayathri\FoodBankProjectSourcecode\FB3SourceBackup2014-02-25\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.csproj.GenerateResource.Cache
 F:\Gayathri\FoodBankProjectSourcecode\FB3SourceBackup2014-02-25\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.dll
 F:\Gayathri\FoodBankProjectSourcecode\FB3SourceBackup2014-02-25\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\bin\Release\SigPadCtrl.dll.config
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\bin\Release\SigPadCtrl.dll
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\bin\Release\SigPadCtrl.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.csprojResolveAssemblyReference.cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.csproj.ResolveComReference.cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.Properties.Resources.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.SigPadInputCtrl.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.csproj.GenerateResource.Cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.dll
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\SigPadCtrl\SigPadCtrl\obj\Release\SigPadCtrl.pdb
