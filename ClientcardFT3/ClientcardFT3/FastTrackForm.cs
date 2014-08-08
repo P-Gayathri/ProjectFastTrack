@@ -30,14 +30,7 @@ namespace ClientcardFB3
         Handshake portHandshake = (Handshake)Enum.Parse(typeof(Handshake), "None");
         int refreshTimeLeft = 30;
         int refreshTimeStart = 30;
-
-        const int defaultScaleRefreshTime = 10;                     //Timer for Automated scale feature <7-27-2014>
-        int scaleTimerCurrentValue= defaultScaleRefreshTime;                            //Timer for Automated scale feature <7-27-2014>
-
-        bool timerEnabled = true;
-
         bool rowSelectedAtLeastOnce = false;
-  
 
         //int rowIndex = 0;
         enum ftcolumns
@@ -59,10 +52,12 @@ namespace ClientcardFB3
             dgvFT.Columns["colLbsTEFAP"].Visible = CCFBPrefs.EnableTEFAP;
             dgvFT.Columns["colLbsSuppl"].Visible = CCFBPrefs.EnableSupplemental;
 
-            //enableScaleFeature.Visible = ScaleTimer.Enabled = ScaleTimerLabel.Visible=BtnEnableDisableTimer.Visible = tbScaleWt.Visible = btnRefresh.Visible = CCFBPrefs.EnableFTscale;                   //Automated scale feature <7-27-2014>
-           
+            enableScaleFeature.Visible = tbScaleWt.Visible = tbTotalScaleWt.Visible= 
+            btnRefresh.Visible =button1.Visible =textBox1.Visible=textBox2.Visible = CCFBPrefs.EnableFTscale;       //Automated scale feature <7-27-2014>
+
             fillForm();
             StartTimer();
+			initScalePort();
 
             enableScale.Enabled = false;
             //tbTotBabyDL.Visible = false;
@@ -260,11 +255,7 @@ namespace ClientcardFB3
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             initScalePort();
-            //StartScaleTimer();
-            timerEnabled = true;
-            //BtnEnableDisableTimer.Text = "Disable Timer";
-            //ScaleTimerLabel.BackColor = Color.PaleGreen;
-
+            tbTotalScaleWt.Text = "0";
         }
 
         private void dgvFT_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -347,27 +338,10 @@ namespace ClientcardFB3
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
         private void FastTrackForm_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void tbScaleWt_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void StartScaleTimer()
-        {
-            initScalePort();
-            scaleTimerCurrentValue = defaultScaleRefreshTime;
-            //ScaleTimerLabel.Text = scaleTimerCurrentValue.ToString();
-            //ScaleTimer.Start();
-        }                                                                                    // Automated Scale feature
+        }                                                                                // Automated Scale feature
 
         private void dgvFT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -395,6 +369,10 @@ namespace ClientcardFB3
             initScalePort();
             btnRefresh.Visible = true;
             tbScaleWt.Visible = true;
+            tbTotalScaleWt.Visible = true;
+            button1.Visible = true;
+            textBox1.Visible = true;
+            textBox2.Visible = true;
 
             enableScale.Enabled = false;
             disableScale.Enabled = true;
@@ -403,6 +381,10 @@ namespace ClientcardFB3
         {
             btnRefresh.Visible = false;
             tbScaleWt.Visible = false;
+            tbTotalScaleWt.Visible = false;
+            button1.Visible = false;
+            textBox1.Visible = false;
+            textBox2.Visible = false;
 
             enableScale.Enabled = true;
             disableScale.Enabled = false;
@@ -411,12 +393,27 @@ namespace ClientcardFB3
         {
          if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7 && dgvFT.RowCount > 0)
             {
-            DataGridViewRow dgvr = dgvFT.CurrentRow;
-            float weightReading = float.Parse(tbScaleWt.Text);
+			    decimal weightReading;
+                DataGridViewRow dgvr = dgvFT.CurrentRow;
+                if (tbTotalScaleWt.Text != "0")
+                {
+                    weightReading = decimal.Parse(tbTotalScaleWt.Text);
+                }
+                else
+                {
+                    weightReading = decimal.Parse(tbScaleWt.Text);
+                }
             dgvr.Cells[e.ColumnIndex].Value = (int)Math.Round(weightReading);
             }
        }
 
+        private void button1_Click(object sender, EventArgs e)              //Add button
+        {
+                decimal currValue = decimal.Parse(tbScaleWt.Text);
+                decimal totalValue = decimal.Parse(tbTotalScaleWt.Text);
+                totalValue += currValue;
+                tbTotalScaleWt.Text = totalValue.ToString();
+        }
         private void dgvFT_SelectionChanged(object sender, EventArgs e)
         {
             if (!rowSelectedAtLeastOnce)

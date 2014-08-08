@@ -42,3 +42,5 @@ SigPadCtrl/SigPadCtrl/obj/Release/SigPadCtrl.csprojResolveAssemblyReference.cach
 SigPadCtrl/SigPadCtrl/obj/Release/SigPadCtrl.csprojResolveAssemblyReference.cache
 *.suo
 ClientcardFT3/ClientcardFT3.v12.suo
+*.suo
+ClientcardFT3/ClientcardFT3/obj/x86/Debug/ClientcardFT3.csproj.FileListAbsolute.txt
