@@ -40,3 +40,5 @@ Icon
 
 SigPadCtrl/SigPadCtrl/obj/Release/SigPadCtrl.csprojResolveAssemblyReference.cache
 SigPadCtrl/SigPadCtrl/obj/Release/SigPadCtrl.csprojResolveAssemblyReference.cache
+*.suo
+ClientcardFT3/ClientcardFT3.v12.suo
