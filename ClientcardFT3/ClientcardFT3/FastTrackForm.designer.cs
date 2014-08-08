@@ -75,6 +75,7 @@
             this.tsslblMsg = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -82,6 +83,7 @@
             this.splitContainer1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer
@@ -148,6 +150,7 @@
             this.dgvFT.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFT_CellMouseDoubleClick);
             this.dgvFT.SelectionChanged += new System.EventHandler(this.dgvFT_SelectionChanged);
             this.dgvFT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvFT_KeyDown);
+            this.dgvFT.Resize += new System.EventHandler(this.dgvFT_Resize);
             // 
             // colHHID
             // 
@@ -309,9 +312,8 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.tbScaleWt);
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
             this.splitContainer1.Panel1.Controls.Add(this.lblFBName);
-            this.splitContainer1.Panel1.Controls.Add(this.btnRefresh);
             // 
             // splitContainer1.Panel2
             // 
@@ -327,11 +329,11 @@
             // tbScaleWt
             // 
             this.tbScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbScaleWt.Location = new System.Drawing.Point(1065, 12);
+            this.tbScaleWt.Location = new System.Drawing.Point(136, 3);
             this.tbScaleWt.Name = "tbScaleWt";
             this.tbScaleWt.Size = new System.Drawing.Size(75, 41);
             this.tbScaleWt.TabIndex = 27;
-            this.tbScaleWt.Text = "0.0";
+            this.tbScaleWt.Text = "0";
             this.tbScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbScaleWt.TextChanged += new System.EventHandler(this.tbScaleWt_TextChanged);
             // 
@@ -347,9 +349,9 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(890, 15);
+            this.btnRefresh.Location = new System.Drawing.Point(3, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(127, 27);
+            this.btnRefresh.Size = new System.Drawing.Size(127, 40);
             this.btnRefresh.TabIndex = 25;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -359,7 +361,7 @@
             // 
             this.SelectedNameLabel.AutoSize = true;
             this.SelectedNameLabel.BackColor = System.Drawing.Color.Beige;
-            this.SelectedNameLabel.Location = new System.Drawing.Point(587, 5);
+            this.SelectedNameLabel.Location = new System.Drawing.Point(468, 5);
             this.SelectedNameLabel.Name = "SelectedNameLabel";
             this.SelectedNameLabel.Size = new System.Drawing.Size(112, 20);
             this.SelectedNameLabel.TabIndex = 28;
@@ -369,7 +371,7 @@
             // 
             this.SelectedIdLabel.AutoSize = true;
             this.SelectedIdLabel.BackColor = System.Drawing.Color.Beige;
-            this.SelectedIdLabel.Location = new System.Drawing.Point(488, 5);
+            this.SelectedIdLabel.Location = new System.Drawing.Point(369, 5);
             this.SelectedIdLabel.Name = "SelectedIdLabel";
             this.SelectedIdLabel.Size = new System.Drawing.Size(85, 20);
             this.SelectedIdLabel.TabIndex = 26;
@@ -380,7 +382,7 @@
             this.SelectedLabel.AutoSize = true;
             this.SelectedLabel.BackColor = System.Drawing.Color.Beige;
             this.SelectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedLabel.Location = new System.Drawing.Point(386, 5);
+            this.SelectedLabel.Location = new System.Drawing.Point(267, 5);
             this.SelectedLabel.Name = "SelectedLabel";
             this.SelectedLabel.Size = new System.Drawing.Size(88, 20);
             this.SelectedLabel.TabIndex = 25;
@@ -414,14 +416,14 @@
             // enableScale
             // 
             this.enableScale.Name = "enableScale";
-            this.enableScale.Size = new System.Drawing.Size(141, 24);
+            this.enableScale.Size = new System.Drawing.Size(175, 24);
             this.enableScale.Text = "Enable";
             this.enableScale.Click += new System.EventHandler(this.enableScaleToolStripMenuItem1_Click);
             // 
             // disableScale
             // 
             this.disableScale.Name = "disableScale";
-            this.disableScale.Size = new System.Drawing.Size(141, 24);
+            this.disableScale.Size = new System.Drawing.Size(175, 24);
             this.disableScale.Text = "Disable";
             this.disableScale.Click += new System.EventHandler(this.disableScaleToolStripMenuItem_Click);
             // 
@@ -470,6 +472,16 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnRefresh);
+            this.flowLayoutPanel1.Controls.Add(this.tbScaleWt);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(941, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(277, 47);
+            this.flowLayoutPanel1.TabIndex = 28;
+            // 
             // FastTrackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -500,6 +512,8 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,5 +553,6 @@
         private System.Windows.Forms.Label SelectedNameLabel;
         private System.Windows.Forms.Label SelectedIdLabel;
         private System.Windows.Forms.Label SelectedLabel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

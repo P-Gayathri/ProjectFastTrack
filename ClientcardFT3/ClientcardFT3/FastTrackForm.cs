@@ -342,7 +342,7 @@ namespace ClientcardFB3
             else
             {
 
-                tbScaleWt.Text = "0.0";
+                tbScaleWt.Text = "0";
 
             }
         }
@@ -409,7 +409,7 @@ namespace ClientcardFB3
         }
         private void dgvFT_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-         if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7)
+         if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7 && dgvFT.RowCount > 0)
             {
             DataGridViewRow dgvr = dgvFT.CurrentRow;
             float weightReading = float.Parse(tbScaleWt.Text);
@@ -446,6 +446,40 @@ namespace ClientcardFB3
                 SelectedNameLabel.Text = "Name = None";
             }
         }
+
+        private void dgvFT_Resize(object sender, EventArgs e)
+        {
+            ResizeGridColumns();
+        }
+
+        private void ResizeGridColumns()
+        {
+            //get sum of non-resizable columns width
+            int diffWidth = 0;
+            foreach (DataGridViewColumn col in dgvFT.Columns)
+            {
+                if (col.Resizable == DataGridViewTriState.False && col.Visible) diffWidth += col.Width;
+            }
+
+            //calculate available width
+            int totalResizableWith = dgvFT.Width - diffWidth;
+
+            //resize column width based on previous proportions
+            for (int i = 0; i < dgvFT.ColumnCount; i++)
+            {
+                try
+                {
+                    if (dgvFT.Columns[i].Resizable != DataGridViewTriState.False && dgvFT.Columns[i].Visible)
+                    {
+                        dgvFT.Columns[i].Width = (int)Math.Floor((decimal)totalResizableWith / dgvFT.ColumnCount);
+                    }
+                }
+                catch { }
+            }
+            //dgvFT.Columns[dgvFT.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvFT.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
     }
 }                                                                                       
 
