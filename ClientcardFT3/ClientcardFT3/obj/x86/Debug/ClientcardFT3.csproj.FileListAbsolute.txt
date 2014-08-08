@@ -8,3 +8,4 @@ F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x8
 F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csproj.GenerateResource.Cache
 F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.exe
 F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csprojResolveAssemblyReference.cache

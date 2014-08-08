@@ -1,5 +1,5 @@
-﻿//#define FASTTRACK
-#define CCFB
+﻿#define FASTTRACK
+//#define CCFB
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -23,9 +23,9 @@ namespace ClientcardFB3
 #if FASTTRACK
             FastTrackForm formMain;
 #endif
-//#if CCFB
-//            MainForm formMain;
-//#endif
+#if CCFB
+            MainForm formMain;
+#endif
         public LoginForm()
         { 
             InitializeComponent();
@@ -217,13 +217,13 @@ namespace ClientcardFB3
                                 this.Visible = false;
                                 this.Enabled = true;
                                 this.ShowInTaskbar = false;
-//                            #if FASTTRACK
-                                FastTrackForm formMain = new FastTrackForm(this);
-//                            #endif
-                            //#if CCFB
-                            //    CCFBPrefs.Init();
-                            //    formMain = new MainForm(this);
-                            //#endif
+                            #if FASTTRACK
+                                formMain = new FastTrackForm(this);
+                            #endif
+                            #if CCFB
+                               CCFBPrefs.Init();
+                               formMain = new MainForm(this);
+                            #endif
 
                                 formMain.ShowDialog();
                                 resetForm();

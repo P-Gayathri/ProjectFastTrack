@@ -59,11 +59,12 @@
             this.colLbsBaby = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDone = new System.Windows.Forms.DataGridViewButtonColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ScaleTimerLabel = new System.Windows.Forms.Label();
-            this.BtnEnableDisableTimer = new System.Windows.Forms.Button();
             this.tbScaleWt = new System.Windows.Forms.TextBox();
             this.lblFBName = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.SelectedNameLabel = new System.Windows.Forms.Label();
+            this.SelectedIdLabel = new System.Windows.Forms.Label();
+            this.SelectedLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.enableScaleFeature = new System.Windows.Forms.ToolStripMenuItem();
             this.enableScale = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +74,6 @@
             this.tsslblsep = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslblMsg = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ScaleTimer = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -140,12 +140,13 @@
             this.dgvFT.RowHeadersWidth = 10;
             this.dgvFT.RowTemplate.Height = 88;
             this.dgvFT.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFT.Size = new System.Drawing.Size(1184, 603);
+            this.dgvFT.Size = new System.Drawing.Size(1218, 603);
             this.dgvFT.TabIndex = 24;
             this.dgvFT.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvFT_CellBeginEdit);
             this.dgvFT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFT_CellEndEdit);
             this.dgvFT.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFT_CellMouseClick);
             this.dgvFT.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFT_CellMouseDoubleClick);
+            this.dgvFT.SelectionChanged += new System.EventHandler(this.dgvFT_SelectionChanged);
             this.dgvFT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvFT_KeyDown);
             // 
             // colHHID
@@ -308,39 +309,20 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.ScaleTimerLabel);
-            this.splitContainer1.Panel1.Controls.Add(this.BtnEnableDisableTimer);
             this.splitContainer1.Panel1.Controls.Add(this.tbScaleWt);
             this.splitContainer1.Panel1.Controls.Add(this.lblFBName);
             this.splitContainer1.Panel1.Controls.Add(this.btnRefresh);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.SelectedNameLabel);
+            this.splitContainer1.Panel2.Controls.Add(this.SelectedIdLabel);
+            this.splitContainer1.Panel2.Controls.Add(this.SelectedLabel);
             this.splitContainer1.Panel2.Controls.Add(this.dgvFT);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip1);
-            this.splitContainer1.Size = new System.Drawing.Size(1184, 682);
+            this.splitContainer1.Size = new System.Drawing.Size(1218, 682);
             this.splitContainer1.SplitterDistance = 47;
             this.splitContainer1.TabIndex = 4;
-            // 
-            // ScaleTimerLabel
-            // 
-            this.ScaleTimerLabel.AutoSize = true;
-            this.ScaleTimerLabel.BackColor = System.Drawing.Color.PaleGreen;
-            this.ScaleTimerLabel.Location = new System.Drawing.Point(775, 20);
-            this.ScaleTimerLabel.Name = "ScaleTimerLabel";
-            this.ScaleTimerLabel.Size = new System.Drawing.Size(18, 20);
-            this.ScaleTimerLabel.TabIndex = 36;
-            this.ScaleTimerLabel.Text = "0";
-            // 
-            // BtnEnableDisableTimer
-            // 
-            this.BtnEnableDisableTimer.Location = new System.Drawing.Point(630, 15);
-            this.BtnEnableDisableTimer.Name = "BtnEnableDisableTimer";
-            this.BtnEnableDisableTimer.Size = new System.Drawing.Size(124, 27);
-            this.BtnEnableDisableTimer.TabIndex = 28;
-            this.BtnEnableDisableTimer.Text = "Disable Timer";
-            this.BtnEnableDisableTimer.UseVisualStyleBackColor = true;
-            this.BtnEnableDisableTimer.Click += new System.EventHandler(this.BtnEnableDisableTimer_Click);
             // 
             // tbScaleWt
             // 
@@ -373,6 +355,37 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // SelectedNameLabel
+            // 
+            this.SelectedNameLabel.AutoSize = true;
+            this.SelectedNameLabel.BackColor = System.Drawing.Color.Beige;
+            this.SelectedNameLabel.Location = new System.Drawing.Point(587, 5);
+            this.SelectedNameLabel.Name = "SelectedNameLabel";
+            this.SelectedNameLabel.Size = new System.Drawing.Size(112, 20);
+            this.SelectedNameLabel.TabIndex = 28;
+            this.SelectedNameLabel.Text = "Name = None";
+            // 
+            // SelectedIdLabel
+            // 
+            this.SelectedIdLabel.AutoSize = true;
+            this.SelectedIdLabel.BackColor = System.Drawing.Color.Beige;
+            this.SelectedIdLabel.Location = new System.Drawing.Point(488, 5);
+            this.SelectedIdLabel.Name = "SelectedIdLabel";
+            this.SelectedIdLabel.Size = new System.Drawing.Size(85, 20);
+            this.SelectedIdLabel.TabIndex = 26;
+            this.SelectedIdLabel.Text = "ID = None";
+            // 
+            // SelectedLabel
+            // 
+            this.SelectedLabel.AutoSize = true;
+            this.SelectedLabel.BackColor = System.Drawing.Color.Beige;
+            this.SelectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedLabel.Location = new System.Drawing.Point(386, 5);
+            this.SelectedLabel.Name = "SelectedLabel";
+            this.SelectedLabel.Size = new System.Drawing.Size(88, 20);
+            this.SelectedLabel.TabIndex = 25;
+            this.SelectedLabel.Text = "Selected:";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Beige;
@@ -381,7 +394,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1218, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -393,22 +406,22 @@
             this.disableScale});
             this.enableScaleFeature.Font = new System.Drawing.Font("Verdana", 10F);
             this.enableScaleFeature.Name = "enableScaleFeature";
-            this.enableScaleFeature.Size = new System.Drawing.Size(239, 24);
+            this.enableScaleFeature.Size = new System.Drawing.Size(220, 24);
             this.enableScaleFeature.Tag = "0";
-            this.enableScaleFeature.Text = "Automated Scale Feature";
+            this.enableScaleFeature.Text = "Automated Scale Menu";
             this.enableScaleFeature.Click += new System.EventHandler(this.enableScaleToolStripMenuItem_Click);
             // 
             // enableScale
             // 
             this.enableScale.Name = "enableScale";
-            this.enableScale.Size = new System.Drawing.Size(175, 24);
+            this.enableScale.Size = new System.Drawing.Size(141, 24);
             this.enableScale.Text = "Enable";
             this.enableScale.Click += new System.EventHandler(this.enableScaleToolStripMenuItem1_Click);
             // 
             // disableScale
             // 
             this.disableScale.Name = "disableScale";
-            this.disableScale.Size = new System.Drawing.Size(175, 24);
+            this.disableScale.Size = new System.Drawing.Size(141, 24);
             this.disableScale.Text = "Disable";
             this.disableScale.Click += new System.EventHandler(this.disableScaleToolStripMenuItem_Click);
             // 
@@ -418,9 +431,9 @@
             this.tssStatus,
             this.tsslblsep,
             this.tsslblMsg});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 660);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 658);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1184, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1218, 24);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -430,7 +443,7 @@
             this.tssStatus.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.tssStatus.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
             this.tssStatus.Name = "tssStatus";
-            this.tssStatus.Size = new System.Drawing.Size(118, 17);
+            this.tssStatus.Size = new System.Drawing.Size(118, 19);
             // 
             // tsslblsep
             // 
@@ -439,7 +452,7 @@
             this.tsslblsep.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.tsslblsep.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
             this.tsslblsep.Name = "tsslblsep";
-            this.tsslblsep.Size = new System.Drawing.Size(150, 17);
+            this.tsslblsep.Size = new System.Drawing.Size(150, 19);
             // 
             // tsslblMsg
             // 
@@ -450,24 +463,19 @@
             this.tsslblMsg.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tsslblMsg.ForeColor = System.Drawing.Color.Magenta;
             this.tsslblMsg.Name = "tsslblMsg";
-            this.tsslblMsg.Size = new System.Drawing.Size(500, 17);
+            this.tsslblMsg.Size = new System.Drawing.Size(500, 19);
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // ScaleTimer
-            // 
-            this.ScaleTimer.Interval = 1000;
-            this.ScaleTimer.Tick += new System.EventHandler(this.ScaleTimer_Tick);
-            // 
             // FastTrackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1184, 682);
+            this.ClientSize = new System.Drawing.Size(1218, 682);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -523,13 +531,13 @@
         private System.Windows.Forms.DataGridViewButtonColumn colDone;
         private System.Windows.Forms.TextBox tbScaleWt;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button BtnEnableDisableTimer;
-        private System.Windows.Forms.Timer ScaleTimer;
-        private System.Windows.Forms.Label ScaleTimerLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem enableScaleFeature;
         private System.Windows.Forms.ToolStripMenuItem enableScale;
         private System.Windows.Forms.ToolStripMenuItem disableScale;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label SelectedNameLabel;
+        private System.Windows.Forms.Label SelectedIdLabel;
+        private System.Windows.Forms.Label SelectedLabel;
     }
 }

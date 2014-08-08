@@ -35,6 +35,8 @@ namespace ClientcardFB3
         int scaleTimerCurrentValue= defaultScaleRefreshTime;                            //Timer for Automated scale feature <7-27-2014>
 
         bool timerEnabled = true;
+
+        bool rowSelectedAtLeastOnce = false;
   
 
         //int rowIndex = 0;
@@ -57,7 +59,7 @@ namespace ClientcardFB3
             dgvFT.Columns["colLbsTEFAP"].Visible = CCFBPrefs.EnableTEFAP;
             dgvFT.Columns["colLbsSuppl"].Visible = CCFBPrefs.EnableSupplemental;
 
-            enableScaleFeature.Visible = ScaleTimer.Enabled = ScaleTimerLabel.Visible=BtnEnableDisableTimer.Visible = tbScaleWt.Visible = btnRefresh.Visible = CCFBPrefs.EnableFTscale;                   //Automated scale feature <7-27-2014>
+            //enableScaleFeature.Visible = ScaleTimer.Enabled = ScaleTimerLabel.Visible=BtnEnableDisableTimer.Visible = tbScaleWt.Visible = btnRefresh.Visible = CCFBPrefs.EnableFTscale;                   //Automated scale feature <7-27-2014>
            
             fillForm();
             StartTimer();
@@ -258,10 +260,10 @@ namespace ClientcardFB3
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             initScalePort();
-            StartScaleTimer();
+            //StartScaleTimer();
             timerEnabled = true;
-            BtnEnableDisableTimer.Text = "Disable Timer";
-            ScaleTimerLabel.BackColor = Color.PaleGreen;
+            //BtnEnableDisableTimer.Text = "Disable Timer";
+            //ScaleTimerLabel.BackColor = Color.PaleGreen;
 
         }
 
@@ -334,7 +336,8 @@ namespace ClientcardFB3
             {
                 s.GetWeight(out weight, out isStable);
                 s.Disconnect();
-                tbScaleWt.Text = Convert.ToString(weight);
+                decimal roundedWeight = weight.HasValue ? Math.Round(weight.Value) : 0;
+                tbScaleWt.Text = Convert.ToString(roundedWeight);
             }
             else
             {
@@ -357,43 +360,14 @@ namespace ClientcardFB3
         private void tbScaleWt_TextChanged(object sender, EventArgs e)
         {
         }
-        private void BtnEnableDisableTimer_Click(object sender, EventArgs e)        //Automated Scale feature
-        {
-            if (timerEnabled)
-            {
-                timerEnabled = false;
-                BtnEnableDisableTimer.Text = "Enable Timer";
-                ScaleTimer.Stop();
-                ScaleTimerLabel.Text = "Timer Disabled";
-                ScaleTimerLabel.BackColor = Color.Azure;
-            }
-            else
-            {
-                StartScaleTimer();
-                timerEnabled = true;
-                BtnEnableDisableTimer.Text = "Disable Timer";
-                ScaleTimerLabel.BackColor = Color.PaleGreen;
-            }
-        }
 
         private void StartScaleTimer()
         {
             initScalePort();
             scaleTimerCurrentValue = defaultScaleRefreshTime;
-            ScaleTimerLabel.Text = scaleTimerCurrentValue.ToString();
-            ScaleTimer.Start();
-        }
-
-        private void ScaleTimer_Tick(object sender, EventArgs e)
-        {
-            scaleTimerCurrentValue--;
-            ScaleTimerLabel.Text = scaleTimerCurrentValue.ToString();
-            if (scaleTimerCurrentValue <= 0)
-            {
-                ScaleTimer.Stop();
-                StartScaleTimer();
-            }
-        }                                                                                       // Automated Scale feature
+            //ScaleTimerLabel.Text = scaleTimerCurrentValue.ToString();
+            //ScaleTimer.Start();
+        }                                                                                    // Automated Scale feature
 
         private void dgvFT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -421,9 +395,6 @@ namespace ClientcardFB3
             initScalePort();
             btnRefresh.Visible = true;
             tbScaleWt.Visible = true;
-            ScaleTimer.Enabled = true;
-            ScaleTimerLabel.Visible = true;
-            BtnEnableDisableTimer.Visible = true;
 
             enableScale.Enabled = false;
             disableScale.Enabled = true;
@@ -432,21 +403,47 @@ namespace ClientcardFB3
         {
             btnRefresh.Visible = false;
             tbScaleWt.Visible = false;
-            ScaleTimer.Enabled = false;
-            ScaleTimerLabel.Visible = false;
-            BtnEnableDisableTimer.Visible = false;
 
             enableScale.Enabled = true;
             disableScale.Enabled = false;
         }
-
         private void dgvFT_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7)
+         if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7)
             {
-                DataGridViewRow dgvr = dgvFT.CurrentRow;
-                float weightReading = float.Parse(tbScaleWt.Text);
-                dgvr.Cells[e.ColumnIndex].Value = (int)Math.Round(weightReading);
+            DataGridViewRow dgvr = dgvFT.CurrentRow;
+            float weightReading = float.Parse(tbScaleWt.Text);
+            dgvr.Cells[e.ColumnIndex].Value = (int)Math.Round(weightReading);
+            }
+       }
+
+        private void dgvFT_SelectionChanged(object sender, EventArgs e)
+        {
+            if (!rowSelectedAtLeastOnce)
+            {
+                if (dgvFT.RowCount > 0)
+                {
+                    dgvFT.CurrentCell = dgvFT.Rows[0].Cells[7];
+                }
+                rowSelectedAtLeastOnce = true;
+            }
+            UpdateSelctedLabels();            
+        }
+
+        private void UpdateSelctedLabels()
+        {
+            if (dgvFT.RowCount > 0)
+            {
+                DataGridViewRow dgvr= dgvFT.CurrentRow;
+                string ID = (string)dgvr.Cells[0].Value;
+                string Name = (string)dgvr.Cells[1].Value;
+                SelectedIdLabel.Text = "ID = " + ID;
+                SelectedNameLabel.Text = "Name = " + Name;
+            }
+            else
+            {
+                SelectedIdLabel.Text = "ID = None";
+                SelectedNameLabel.Text = "Name = None";
             }
         }
     }
