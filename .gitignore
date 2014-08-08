@@ -37,3 +37,6 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+SigPadCtrl/SigPadCtrl/obj/Release/SigPadCtrl.csprojResolveAssemblyReference.cache
+SigPadCtrl/SigPadCtrl/obj/Release/SigPadCtrl.csprojResolveAssemblyReference.cache
