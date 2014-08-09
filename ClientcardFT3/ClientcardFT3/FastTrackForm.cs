@@ -30,7 +30,10 @@ namespace ClientcardFB3
         Handshake portHandshake = (Handshake)Enum.Parse(typeof(Handshake), "None");
         int refreshTimeLeft = 30;
         int refreshTimeStart = 30;
+
         bool rowSelectedAtLeastOnce = false;
+        bool weightChanges = false;
+
 
         //int rowIndex = 0;
         enum ftcolumns
@@ -52,12 +55,12 @@ namespace ClientcardFB3
             dgvFT.Columns["colLbsTEFAP"].Visible = CCFBPrefs.EnableTEFAP;
             dgvFT.Columns["colLbsSuppl"].Visible = CCFBPrefs.EnableSupplemental;
 
-            enableScaleFeature.Visible = tbScaleWt.Visible = tbTotalScaleWt.Visible= 
-            btnRefresh.Visible =button1.Visible =textBox1.Visible=textBox2.Visible = CCFBPrefs.EnableFTscale;       //Automated scale feature <7-27-2014>
+            enableScaleFeature.Visible = tbScaleWt.Visible = tbTotalScaleWt.Visible =
+            btnRefresh.Visible = addWeightButton.Visible = totalWeightText.Visible = scaleWeightText.Visible = CCFBPrefs.EnableFTscale;       //Automated scale feature <7-27-2014>
 
             fillForm();
             StartTimer();
-			initScalePort();
+            initScalePort();
 
             enableScale.Enabled = false;
             //tbTotBabyDL.Visible = false;
@@ -216,7 +219,7 @@ namespace ClientcardFB3
             //leftForTextBox = tbTotCmDL.Left;
             //EnablelvwColumn(CCFBPrefs.EnableTEFAP, lvDailyLog.Columns[11], tbTotCmDL);                      //"dlCommodity"
             //EnablelvwColumn(CCFBPrefs.EnableSupplemental, lvDailyLog.Columns[12], tbTotSuplDL);             //"dlSuppl"
-            //EnablelvwColumn(CCFBPrefs.EnableBabyServices, lvDailyLog.Columns[13]);             //"dlBabySvcLbs"
+            //EnablelvwColumn(CCFBPrefs.EnableBabyServices, lvDailyLog.Columns[13]);                          //"dlBabySvcLbs"
         }
 
         private void EnablelvwColumn(bool isEnabled, ColumnHeader colHdr)
@@ -255,7 +258,6 @@ namespace ClientcardFB3
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             initScalePort();
-            tbTotalScaleWt.Text = "0";
         }
 
         private void dgvFT_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -270,6 +272,7 @@ namespace ClientcardFB3
                                                        , dgvr.Cells["colLbsBaby"].Value.ToString());
                 fillForm();
                 StartTimer();
+
             }
         }
 
@@ -296,7 +299,6 @@ namespace ClientcardFB3
                     dgvCellStyle.ForeColor = Color.Magenta;
                     tsslblMsg.Text = "Invalid number entered";
                 }
-
             }
             else
             {
@@ -314,7 +316,6 @@ namespace ClientcardFB3
             if (dgvFT.Focused == true)
                 CCFBGlobal.checkForIntOnKeyPress(e);
         }
-
         private void initScalePort()
         {
             decimal? weight;
@@ -329,19 +330,26 @@ namespace ClientcardFB3
                 s.Disconnect();
                 decimal roundedWeight = weight.HasValue ? Math.Round(weight.Value) : 0;
                 tbScaleWt.Text = Convert.ToString(roundedWeight);
+                if (tbTotalScaleWt.Text == "0")
+                {
+                    tbTotalScaleWt.Text = Convert.ToString(roundedWeight);
+                }
             }
             else
             {
-
                 tbScaleWt.Text = "0";
-
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
 
         private void FastTrackForm_Load(object sender, EventArgs e)
         {
 
-        }                                                                                // Automated Scale feature
+        }
 
         private void dgvFT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -352,49 +360,48 @@ namespace ClientcardFB3
         {
 
         }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)   //Automated Scale feature
         {
 
-
         }
-
         private void enableScaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
         private void enableScaleToolStripMenuItem1_Click(object sender, EventArgs e)                //Automated Scale feature
         {
             initScalePort();
             btnRefresh.Visible = true;
             tbScaleWt.Visible = true;
             tbTotalScaleWt.Visible = true;
-            button1.Visible = true;
-            textBox1.Visible = true;
-            textBox2.Visible = true;
+            addWeightButton.Visible = true;
+            totalWeightText.Visible = true;
+            scaleWeightText.Visible = true;
 
             enableScale.Enabled = false;
             disableScale.Enabled = true;
+
         }
         private void disableScaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnRefresh.Visible = false;
             tbScaleWt.Visible = false;
             tbTotalScaleWt.Visible = false;
-            button1.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
+            addWeightButton.Visible = false;
+            totalWeightText.Visible = false;
+            scaleWeightText.Visible = false;
 
             enableScale.Enabled = true;
             disableScale.Enabled = false;
         }
         private void dgvFT_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-         if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7 && dgvFT.RowCount > 0)
+
+            if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7)
             {
-			    decimal weightReading;
+                decimal weightReading;
                 DataGridViewRow dgvr = dgvFT.CurrentRow;
+
                 if (tbTotalScaleWt.Text != "0")
                 {
                     weightReading = decimal.Parse(tbTotalScaleWt.Text);
@@ -403,16 +410,19 @@ namespace ClientcardFB3
                 {
                     weightReading = decimal.Parse(tbScaleWt.Text);
                 }
-            dgvr.Cells[e.ColumnIndex].Value = (int)Math.Round(weightReading);
+                dgvr.Cells[e.ColumnIndex].Value = (int)Math.Round(weightReading);
             }
-       }
+        }
 
-        private void button1_Click(object sender, EventArgs e)              //Add button
+        private void addWeightButton_Click(object sender, EventArgs e)              //Add button
         {
+            if (tbScaleWt.Text != "0")
+            {
                 decimal currValue = decimal.Parse(tbScaleWt.Text);
                 decimal totalValue = decimal.Parse(tbTotalScaleWt.Text);
                 totalValue += currValue;
                 tbTotalScaleWt.Text = totalValue.ToString();
+            }
         }
         private void dgvFT_SelectionChanged(object sender, EventArgs e)
         {
@@ -424,14 +434,13 @@ namespace ClientcardFB3
                 }
                 rowSelectedAtLeastOnce = true;
             }
-            UpdateSelctedLabels();            
+            UpdateSelctedLabels();
         }
-
         private void UpdateSelctedLabels()
         {
             if (dgvFT.RowCount > 0)
             {
-                DataGridViewRow dgvr= dgvFT.CurrentRow;
+                DataGridViewRow dgvr = dgvFT.CurrentRow;
                 string ID = (string)dgvr.Cells[0].Value;
                 string Name = (string)dgvr.Cells[1].Value;
                 SelectedIdLabel.Text = "ID = " + ID;
@@ -444,6 +453,11 @@ namespace ClientcardFB3
             }
         }
 
+        private void clearTotalWt_Click(object sender, EventArgs e)
+        {
+            initScalePort();
+            tbTotalScaleWt.Text = "0";
+        }
         private void dgvFT_Resize(object sender, EventArgs e)
         {
             ResizeGridColumns();
@@ -476,9 +490,8 @@ namespace ClientcardFB3
             //dgvFT.Columns[dgvFT.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvFT.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
     }
-}                                                                                       
+}
 
 
 

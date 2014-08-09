@@ -59,14 +59,15 @@
             this.colLbsBaby = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDone = new System.Windows.Forms.DataGridViewButtonColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblFBName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clearTotalWt = new System.Windows.Forms.Button();
+            this.scaleWeightText = new System.Windows.Forms.TextBox();
+            this.addWeightButton = new System.Windows.Forms.Button();
+            this.tbTotalScaleWt = new System.Windows.Forms.TextBox();
+            this.totalWeightText = new System.Windows.Forms.TextBox();
             this.tbScaleWt = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbTotalScaleWt = new System.Windows.Forms.TextBox();
-            this.lblFBName = new System.Windows.Forms.Label();
             this.SelectedNameLabel = new System.Windows.Forms.Label();
             this.SelectedIdLabel = new System.Windows.Forms.Label();
             this.SelectedLabel = new System.Windows.Forms.Label();
@@ -140,13 +141,13 @@
             this.dgvFT.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvFT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFT.GridColor = System.Drawing.Color.DimGray;
-            this.dgvFT.Location = new System.Drawing.Point(0, 28);
+            this.dgvFT.Location = new System.Drawing.Point(0, 25);
             this.dgvFT.Name = "dgvFT";
             this.dgvFT.RowHeadersVisible = false;
             this.dgvFT.RowHeadersWidth = 10;
             this.dgvFT.RowTemplate.Height = 88;
             this.dgvFT.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFT.Size = new System.Drawing.Size(1218, 559);
+            this.dgvFT.Size = new System.Drawing.Size(1276, 562);
             this.dgvFT.TabIndex = 24;
             this.dgvFT.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvFT_CellBeginEdit);
             this.dgvFT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFT_CellEndEdit);
@@ -316,8 +317,8 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.lblFBName);
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
             // 
             // splitContainer1.Panel2
             // 
@@ -326,91 +327,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.SelectedLabel);
             this.splitContainer1.Panel2.Controls.Add(this.dgvFT);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip1);
-            this.splitContainer1.Size = new System.Drawing.Size(1218, 682);
+            this.splitContainer1.Size = new System.Drawing.Size(1276, 682);
             this.splitContainer1.SplitterDistance = 91;
             this.splitContainer1.TabIndex = 4;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.tbScaleWt);
-            this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.tbTotalScaleWt);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(782, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(436, 91);
-            this.panel1.TabIndex = 33;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(190, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 22);
-            this.textBox1.TabIndex = 28;
-            this.textBox1.Text = "Total Weight";
-            // 
-            // tbScaleWt
-            // 
-            this.tbScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbScaleWt.Location = new System.Drawing.Point(24, 42);
-            this.tbScaleWt.Name = "tbScaleWt";
-            this.tbScaleWt.Size = new System.Drawing.Size(75, 41);
-            this.tbScaleWt.TabIndex = 27;
-            this.tbScaleWt.Text = "0";
-            this.tbScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(306, 42);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(127, 41);
-            this.btnRefresh.TabIndex = 25;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox2.Location = new System.Drawing.Point(0, 15);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 22);
-            this.textBox2.TabIndex = 32;
-            this.textBox2.Text = "Scale Weight";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(136, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 35);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // tbTotalScaleWt
-            // 
-            this.tbTotalScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbTotalScaleWt.Location = new System.Drawing.Point(213, 42);
-            this.tbTotalScaleWt.Name = "tbTotalScaleWt";
-            this.tbTotalScaleWt.Size = new System.Drawing.Size(75, 41);
-            this.tbTotalScaleWt.TabIndex = 29;
-            this.tbTotalScaleWt.Text = "0";
-            this.tbTotalScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblFBName
             // 
@@ -418,17 +337,110 @@
             this.lblFBName.Font = new System.Drawing.Font("Verdana", 14F);
             this.lblFBName.Location = new System.Drawing.Point(12, 14);
             this.lblFBName.Name = "lblFBName";
-            this.lblFBName.Size = new System.Drawing.Size(215, 29);
+            this.lblFBName.Size = new System.Drawing.Size(172, 23);
             this.lblFBName.TabIndex = 26;
             this.lblFBName.Text = "Food Bank Name";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.clearTotalWt);
+            this.panel1.Controls.Add(this.scaleWeightText);
+            this.panel1.Controls.Add(this.addWeightButton);
+            this.panel1.Controls.Add(this.tbTotalScaleWt);
+            this.panel1.Controls.Add(this.totalWeightText);
+            this.panel1.Controls.Add(this.tbScaleWt);
+            this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(512, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(764, 91);
+            this.panel1.TabIndex = 33;
+            // 
+            // clearTotalWt
+            // 
+            this.clearTotalWt.Location = new System.Drawing.Point(637, 48);
+            this.clearTotalWt.Name = "clearTotalWt";
+            this.clearTotalWt.Size = new System.Drawing.Size(71, 35);
+            this.clearTotalWt.TabIndex = 33;
+            this.clearTotalWt.Text = "Clear";
+            this.clearTotalWt.UseVisualStyleBackColor = true;
+            this.clearTotalWt.Click += new System.EventHandler(this.clearTotalWt_Click);
+            // 
+            // scaleWeightText
+            // 
+            this.scaleWeightText.BackColor = System.Drawing.SystemColors.Menu;
+            this.scaleWeightText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.scaleWeightText.Cursor = System.Windows.Forms.Cursors.No;
+            this.scaleWeightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scaleWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.scaleWeightText.Location = new System.Drawing.Point(342, 18);
+            this.scaleWeightText.Name = "scaleWeightText";
+            this.scaleWeightText.Size = new System.Drawing.Size(95, 17);
+            this.scaleWeightText.TabIndex = 32;
+            this.scaleWeightText.Text = "Scale Weight";
+            // 
+            // addWeightButton
+            // 
+            this.addWeightButton.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.addWeightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addWeightButton.Location = new System.Drawing.Point(465, 48);
+            this.addWeightButton.Name = "addWeightButton";
+            this.addWeightButton.Size = new System.Drawing.Size(38, 35);
+            this.addWeightButton.TabIndex = 31;
+            this.addWeightButton.Text = "+";
+            this.addWeightButton.UseVisualStyleBackColor = false;
+            this.addWeightButton.Click += new System.EventHandler(this.addWeightButton_Click);
+            // 
+            // tbTotalScaleWt
+            // 
+            this.tbTotalScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.tbTotalScaleWt.Location = new System.Drawing.Point(540, 48);
+            this.tbTotalScaleWt.Name = "tbTotalScaleWt";
+            this.tbTotalScaleWt.Size = new System.Drawing.Size(75, 35);
+            this.tbTotalScaleWt.TabIndex = 29;
+            this.tbTotalScaleWt.Text = "0";
+            this.tbTotalScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // totalWeightText
+            // 
+            this.totalWeightText.BackColor = System.Drawing.SystemColors.Menu;
+            this.totalWeightText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.totalWeightText.Cursor = System.Windows.Forms.Cursors.No;
+            this.totalWeightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.totalWeightText.Location = new System.Drawing.Point(526, 18);
+            this.totalWeightText.Name = "totalWeightText";
+            this.totalWeightText.Size = new System.Drawing.Size(89, 17);
+            this.totalWeightText.TabIndex = 28;
+            this.totalWeightText.Text = "Total Weight";
+            // 
+            // tbScaleWt
+            // 
+            this.tbScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.tbScaleWt.Location = new System.Drawing.Point(353, 48);
+            this.tbScaleWt.Name = "tbScaleWt";
+            this.tbScaleWt.Size = new System.Drawing.Size(75, 35);
+            this.tbScaleWt.TabIndex = 27;
+            this.tbScaleWt.Text = "0";
+            this.tbScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(260, 48);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(74, 35);
+            this.btnRefresh.TabIndex = 25;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // SelectedNameLabel
             // 
             this.SelectedNameLabel.AutoSize = true;
             this.SelectedNameLabel.BackColor = System.Drawing.Color.Beige;
-            this.SelectedNameLabel.Location = new System.Drawing.Point(468, 5);
+            this.SelectedNameLabel.Location = new System.Drawing.Point(587, 5);
             this.SelectedNameLabel.Name = "SelectedNameLabel";
-            this.SelectedNameLabel.Size = new System.Drawing.Size(112, 20);
+            this.SelectedNameLabel.Size = new System.Drawing.Size(95, 17);
             this.SelectedNameLabel.TabIndex = 28;
             this.SelectedNameLabel.Text = "Name = None";
             // 
@@ -436,9 +448,9 @@
             // 
             this.SelectedIdLabel.AutoSize = true;
             this.SelectedIdLabel.BackColor = System.Drawing.Color.Beige;
-            this.SelectedIdLabel.Location = new System.Drawing.Point(369, 5);
+            this.SelectedIdLabel.Location = new System.Drawing.Point(488, 5);
             this.SelectedIdLabel.Name = "SelectedIdLabel";
-            this.SelectedIdLabel.Size = new System.Drawing.Size(85, 20);
+            this.SelectedIdLabel.Size = new System.Drawing.Size(71, 17);
             this.SelectedIdLabel.TabIndex = 26;
             this.SelectedIdLabel.Text = "ID = None";
             // 
@@ -447,9 +459,9 @@
             this.SelectedLabel.AutoSize = true;
             this.SelectedLabel.BackColor = System.Drawing.Color.Beige;
             this.SelectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedLabel.Location = new System.Drawing.Point(267, 5);
+            this.SelectedLabel.Location = new System.Drawing.Point(386, 5);
             this.SelectedLabel.Name = "SelectedLabel";
-            this.SelectedLabel.Size = new System.Drawing.Size(88, 20);
+            this.SelectedLabel.Size = new System.Drawing.Size(76, 17);
             this.SelectedLabel.TabIndex = 25;
             this.SelectedLabel.Text = "Selected:";
             // 
@@ -461,7 +473,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1218, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1276, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -473,22 +485,22 @@
             this.disableScale});
             this.enableScaleFeature.Font = new System.Drawing.Font("Verdana", 10F);
             this.enableScaleFeature.Name = "enableScaleFeature";
-            this.enableScaleFeature.Size = new System.Drawing.Size(220, 24);
+            this.enableScaleFeature.Size = new System.Drawing.Size(197, 21);
             this.enableScaleFeature.Tag = "0";
-            this.enableScaleFeature.Text = "Automated Scale Menu";
+            this.enableScaleFeature.Text = "Automated Scale Feature";
             this.enableScaleFeature.Click += new System.EventHandler(this.enableScaleToolStripMenuItem_Click);
             // 
             // enableScale
             // 
             this.enableScale.Name = "enableScale";
-            this.enableScale.Size = new System.Drawing.Size(141, 24);
+            this.enableScale.Size = new System.Drawing.Size(126, 22);
             this.enableScale.Text = "Enable";
             this.enableScale.Click += new System.EventHandler(this.enableScaleToolStripMenuItem1_Click);
             // 
             // disableScale
             // 
             this.disableScale.Name = "disableScale";
-            this.disableScale.Size = new System.Drawing.Size(141, 24);
+            this.disableScale.Size = new System.Drawing.Size(126, 22);
             this.disableScale.Text = "Disable";
             this.disableScale.Click += new System.EventHandler(this.disableScaleToolStripMenuItem_Click);
             // 
@@ -500,7 +512,7 @@
             this.tsslblMsg});
             this.statusStrip1.Location = new System.Drawing.Point(0, 658);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1218, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1276, 24);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -535,13 +547,14 @@
             // timer1
             // 
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FastTrackForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1218, 682);
+            this.ClientSize = new System.Drawing.Size(1276, 682);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -597,20 +610,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLbsSuppl;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLbsBaby;
         private System.Windows.Forms.DataGridViewButtonColumn colDone;
+        private System.Windows.Forms.TextBox tbScaleWt;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem enableScaleFeature;
         private System.Windows.Forms.ToolStripMenuItem enableScale;
         private System.Windows.Forms.ToolStripMenuItem disableScale;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addWeightButton;
         private System.Windows.Forms.TextBox tbTotalScaleWt;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox totalWeightText;
+        private System.Windows.Forms.TextBox scaleWeightText;
         private System.Windows.Forms.Label SelectedNameLabel;
         private System.Windows.Forms.Label SelectedIdLabel;
         private System.Windows.Forms.Label SelectedLabel;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox tbScaleWt;
+        private System.Windows.Forms.Button clearTotalWt;
         private System.Windows.Forms.Panel panel1;
     }
 }
