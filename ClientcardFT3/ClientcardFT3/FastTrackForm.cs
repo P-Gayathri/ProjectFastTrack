@@ -32,7 +32,6 @@ namespace ClientcardFB3
         int refreshTimeStart = 30;
 
         bool rowSelectedAtLeastOnce = false;
-        bool weightChanges = false;
 
 
         //int rowIndex = 0;
@@ -186,7 +185,6 @@ namespace ClientcardFB3
                         }
                         dvr.Cells[dgvCol.HeaderCell.ColumnIndex].Style.ForeColor = Color.Black;
                     }
-
                     rowCount++;
                 }
                 catch (Exception ex)
@@ -195,7 +193,7 @@ namespace ClientcardFB3
                 }
                 if (rowCount > 0)
                 {
-                    dgvFT.CurrentCell = dgvFT[dgvFT.Columns["colLbsStd"].Index, 0];
+                    dgvFT.CurrentCell = dgvFT[dgvFT.Columns["colHHID"].Index, 0]; 
                     dgvFT.Focus();
                 }
             }
@@ -276,7 +274,7 @@ namespace ClientcardFB3
             }
         }
 
-        private void dgvFT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+       private void dgvFT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             tsslblMsg.Text = "";
             int testTrxId = Convert.ToInt32(dgvFT.Rows[e.RowIndex].Tag.ToString());
@@ -340,31 +338,7 @@ namespace ClientcardFB3
                 tbScaleWt.Text = "0";
             }
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
         private void FastTrackForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvFT_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)   //Automated Scale feature
-        {
-
-        }
-        private void enableScaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -396,21 +370,26 @@ namespace ClientcardFB3
         }
         private void dgvFT_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
             if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7)
             {
-                decimal weightReading;
                 DataGridViewRow dgvr = dgvFT.CurrentRow;
+                Int32 weightReading;   
+                int toBeSubtracted = 0;
+                if (e.ColumnIndex == 7)
+                {
+                    toBeSubtracted = Convert.ToInt32(dgvr.Cells[9].Value);
+                }
 
                 if (tbTotalScaleWt.Text != "0")
                 {
-                    weightReading = decimal.Parse(tbTotalScaleWt.Text);
+                    weightReading = Int32.Parse(tbTotalScaleWt.Text);
                 }
                 else
                 {
-                    weightReading = decimal.Parse(tbScaleWt.Text);
+                    weightReading = Int32.Parse(tbScaleWt.Text);
                 }
-                dgvr.Cells[e.ColumnIndex].Value = (int)Math.Round(weightReading);
+                Int32 FinalWeight = weightReading - toBeSubtracted;
+                dgvr.Cells[e.ColumnIndex].Value = (Int32)Math.Max(0,FinalWeight);
             }
         }
 
@@ -418,8 +397,8 @@ namespace ClientcardFB3
         {
             if (tbScaleWt.Text != "0")
             {
-                decimal currValue = decimal.Parse(tbScaleWt.Text);
-                decimal totalValue = decimal.Parse(tbTotalScaleWt.Text);
+                Int32 currValue = Int32.Parse(tbScaleWt.Text);
+                Int32 totalValue = Int32.Parse(tbTotalScaleWt.Text);
                 totalValue += currValue;
                 tbTotalScaleWt.Text = totalValue.ToString();
             }
@@ -492,6 +471,7 @@ namespace ClientcardFB3
         }
     }
 }
+
 
 
 

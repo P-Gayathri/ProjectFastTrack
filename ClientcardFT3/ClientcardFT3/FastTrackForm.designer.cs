@@ -488,7 +488,6 @@
             this.enableScaleFeature.Size = new System.Drawing.Size(197, 21);
             this.enableScaleFeature.Tag = "0";
             this.enableScaleFeature.Text = "Automated Scale Feature";
-            this.enableScaleFeature.Click += new System.EventHandler(this.enableScaleToolStripMenuItem_Click);
             // 
             // enableScale
             // 
@@ -547,7 +546,6 @@
             // timer1
             // 
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FastTrackForm
             // 
@@ -628,3 +626,5 @@
         private System.Windows.Forms.Panel panel1;
     }
 }
+
+
