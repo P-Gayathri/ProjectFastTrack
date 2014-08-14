@@ -61,6 +61,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblFBName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SelectedNameLabel = new System.Windows.Forms.Label();
+            this.SelectedIdLabel = new System.Windows.Forms.Label();
+            this.SelectedLabel = new System.Windows.Forms.Label();
             this.clearTotalWt = new System.Windows.Forms.Button();
             this.scaleWeightText = new System.Windows.Forms.TextBox();
             this.addWeightButton = new System.Windows.Forms.Button();
@@ -68,9 +71,6 @@
             this.totalWeightText = new System.Windows.Forms.TextBox();
             this.tbScaleWt = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.SelectedNameLabel = new System.Windows.Forms.Label();
-            this.SelectedIdLabel = new System.Windows.Forms.Label();
-            this.SelectedLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.enableScaleFeature = new System.Windows.Forms.ToolStripMenuItem();
             this.enableScale = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,7 +116,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvFT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colHHID,
             this.colName,
@@ -141,13 +140,12 @@
             this.dgvFT.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvFT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFT.GridColor = System.Drawing.Color.DimGray;
-            this.dgvFT.Location = new System.Drawing.Point(0, 25);
+            this.dgvFT.Location = new System.Drawing.Point(0, 26);
             this.dgvFT.Name = "dgvFT";
-            this.dgvFT.RowHeadersVisible = false;
             this.dgvFT.RowHeadersWidth = 10;
             this.dgvFT.RowTemplate.Height = 88;
             this.dgvFT.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFT.Size = new System.Drawing.Size(1276, 562);
+            this.dgvFT.Size = new System.Drawing.Size(1276, 561);
             this.dgvFT.TabIndex = 24;
             this.dgvFT.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvFT_CellBeginEdit);
             this.dgvFT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFT_CellEndEdit);
@@ -166,7 +164,7 @@
             this.colHHID.HeaderText = "ID";
             this.colHHID.Name = "colHHID";
             this.colHHID.ReadOnly = true;
-            this.colHHID.Width = 60;
+            this.colHHID.Width = 88;
             // 
             // colName
             // 
@@ -189,7 +187,7 @@
             this.colFamilySize.HeaderText = "FamilySize";
             this.colFamilySize.Name = "colFamilySize";
             this.colFamilySize.ReadOnly = true;
-            this.colFamilySize.Width = 80;
+            this.colFamilySize.Width = 87;
             // 
             // colFoodList
             // 
@@ -203,7 +201,6 @@
             this.colFoodList.MinimumWidth = 100;
             this.colFoodList.Name = "colFoodList";
             this.colFoodList.ReadOnly = true;
-            this.colFoodList.Width = 145;
             // 
             // colBabySvcs
             // 
@@ -211,7 +208,7 @@
             this.colBabySvcs.HeaderText = "Baby Services";
             this.colBabySvcs.Name = "colBabySvcs";
             this.colBabySvcs.ReadOnly = true;
-            this.colBabySvcs.Width = 130;
+            this.colBabySvcs.Width = 88;
             // 
             // colNonFood
             // 
@@ -219,6 +216,7 @@
             this.colNonFood.HeaderText = "Non-Food List";
             this.colNonFood.Name = "colNonFood";
             this.colNonFood.ReadOnly = true;
+            this.colNonFood.Width = 88;
             // 
             // colNotes
             // 
@@ -232,7 +230,7 @@
             this.colNotes.HeaderText = "Notes";
             this.colNotes.Name = "colNotes";
             this.colNotes.ReadOnly = true;
-            this.colNotes.Width = 200;
+            this.colNotes.Width = 87;
             // 
             // colLbsStd
             // 
@@ -244,7 +242,7 @@
             this.colLbsStd.HeaderText = "Lbs Std";
             this.colLbsStd.MinimumWidth = 20;
             this.colLbsStd.Name = "colLbsStd";
-            this.colLbsStd.Width = 50;
+            this.colLbsStd.Width = 88;
             // 
             // colLbsOther
             // 
@@ -256,7 +254,7 @@
             this.colLbsOther.HeaderText = "Lbs Other";
             this.colLbsOther.MinimumWidth = 20;
             this.colLbsOther.Name = "colLbsOther";
-            this.colLbsOther.Width = 50;
+            this.colLbsOther.Width = 87;
             // 
             // colLbsTEFAP
             // 
@@ -268,7 +266,7 @@
             this.colLbsTEFAP.HeaderText = "Lbs Comm";
             this.colLbsTEFAP.MinimumWidth = 20;
             this.colLbsTEFAP.Name = "colLbsTEFAP";
-            this.colLbsTEFAP.Width = 50;
+            this.colLbsTEFAP.Width = 88;
             // 
             // colLbsSuppl
             // 
@@ -280,7 +278,7 @@
             this.colLbsSuppl.HeaderText = "Lbs Suppl";
             this.colLbsSuppl.MinimumWidth = 20;
             this.colLbsSuppl.Name = "colLbsSuppl";
-            this.colLbsSuppl.Width = 50;
+            this.colLbsSuppl.Width = 88;
             // 
             // colLbsBaby
             // 
@@ -292,7 +290,7 @@
             this.colLbsBaby.HeaderText = "Lbs Baby";
             this.colLbsBaby.MinimumWidth = 20;
             this.colLbsBaby.Name = "colLbsBaby";
-            this.colLbsBaby.Width = 50;
+            this.colLbsBaby.Width = 87;
             // 
             // colDone
             // 
@@ -306,7 +304,7 @@
             this.colDone.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colDone.Text = "Save";
             this.colDone.UseColumnTextForButtonValue = true;
-            this.colDone.Width = 50;
+            this.colDone.Width = 88;
             // 
             // splitContainer1
             // 
@@ -322,9 +320,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.SelectedNameLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.SelectedIdLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.SelectedLabel);
             this.splitContainer1.Panel2.Controls.Add(this.dgvFT);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(1276, 682);
@@ -343,6 +338,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.SelectedNameLabel);
+            this.panel1.Controls.Add(this.SelectedIdLabel);
+            this.panel1.Controls.Add(this.SelectedLabel);
             this.panel1.Controls.Add(this.clearTotalWt);
             this.panel1.Controls.Add(this.scaleWeightText);
             this.panel1.Controls.Add(this.addWeightButton);
@@ -351,14 +349,47 @@
             this.panel1.Controls.Add(this.tbScaleWt);
             this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(512, 0);
+            this.panel1.Location = new System.Drawing.Point(343, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 91);
+            this.panel1.Size = new System.Drawing.Size(933, 91);
             this.panel1.TabIndex = 33;
+            // 
+            // SelectedNameLabel
+            // 
+            this.SelectedNameLabel.AutoSize = true;
+            this.SelectedNameLabel.BackColor = System.Drawing.Color.Beige;
+            this.SelectedNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedNameLabel.Location = new System.Drawing.Point(202, 62);
+            this.SelectedNameLabel.Name = "SelectedNameLabel";
+            this.SelectedNameLabel.Size = new System.Drawing.Size(106, 20);
+            this.SelectedNameLabel.TabIndex = 28;
+            this.SelectedNameLabel.Text = "Name = None";
+            // 
+            // SelectedIdLabel
+            // 
+            this.SelectedIdLabel.AutoSize = true;
+            this.SelectedIdLabel.BackColor = System.Drawing.Color.Beige;
+            this.SelectedIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedIdLabel.Location = new System.Drawing.Point(110, 62);
+            this.SelectedIdLabel.Name = "SelectedIdLabel";
+            this.SelectedIdLabel.Size = new System.Drawing.Size(81, 20);
+            this.SelectedIdLabel.TabIndex = 26;
+            this.SelectedIdLabel.Text = "ID = None";
+            // 
+            // SelectedLabel
+            // 
+            this.SelectedLabel.AutoSize = true;
+            this.SelectedLabel.BackColor = System.Drawing.Color.Beige;
+            this.SelectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedLabel.Location = new System.Drawing.Point(16, 62);
+            this.SelectedLabel.Name = "SelectedLabel";
+            this.SelectedLabel.Size = new System.Drawing.Size(85, 20);
+            this.SelectedLabel.TabIndex = 25;
+            this.SelectedLabel.Text = "Selected:";
             // 
             // clearTotalWt
             // 
-            this.clearTotalWt.Location = new System.Drawing.Point(637, 48);
+            this.clearTotalWt.Location = new System.Drawing.Point(776, 53);
             this.clearTotalWt.Name = "clearTotalWt";
             this.clearTotalWt.Size = new System.Drawing.Size(71, 35);
             this.clearTotalWt.TabIndex = 33;
@@ -373,7 +404,7 @@
             this.scaleWeightText.Cursor = System.Windows.Forms.Cursors.No;
             this.scaleWeightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scaleWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.scaleWeightText.Location = new System.Drawing.Point(342, 18);
+            this.scaleWeightText.Location = new System.Drawing.Point(527, 25);
             this.scaleWeightText.Name = "scaleWeightText";
             this.scaleWeightText.Size = new System.Drawing.Size(95, 17);
             this.scaleWeightText.TabIndex = 32;
@@ -383,7 +414,7 @@
             // 
             this.addWeightButton.BackColor = System.Drawing.Color.AntiqueWhite;
             this.addWeightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addWeightButton.Location = new System.Drawing.Point(465, 48);
+            this.addWeightButton.Location = new System.Drawing.Point(622, 53);
             this.addWeightButton.Name = "addWeightButton";
             this.addWeightButton.Size = new System.Drawing.Size(38, 35);
             this.addWeightButton.TabIndex = 31;
@@ -394,7 +425,7 @@
             // tbTotalScaleWt
             // 
             this.tbTotalScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbTotalScaleWt.Location = new System.Drawing.Point(540, 48);
+            this.tbTotalScaleWt.Location = new System.Drawing.Point(684, 53);
             this.tbTotalScaleWt.Name = "tbTotalScaleWt";
             this.tbTotalScaleWt.Size = new System.Drawing.Size(75, 35);
             this.tbTotalScaleWt.TabIndex = 29;
@@ -408,7 +439,7 @@
             this.totalWeightText.Cursor = System.Windows.Forms.Cursors.No;
             this.totalWeightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.totalWeightText.Location = new System.Drawing.Point(526, 18);
+            this.totalWeightText.Location = new System.Drawing.Point(684, 25);
             this.totalWeightText.Name = "totalWeightText";
             this.totalWeightText.Size = new System.Drawing.Size(89, 17);
             this.totalWeightText.TabIndex = 28;
@@ -417,7 +448,7 @@
             // tbScaleWt
             // 
             this.tbScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbScaleWt.Location = new System.Drawing.Point(353, 48);
+            this.tbScaleWt.Location = new System.Drawing.Point(527, 53);
             this.tbScaleWt.Name = "tbScaleWt";
             this.tbScaleWt.Size = new System.Drawing.Size(75, 35);
             this.tbScaleWt.TabIndex = 27;
@@ -426,44 +457,13 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(260, 48);
+            this.btnRefresh.Location = new System.Drawing.Point(435, 53);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(74, 35);
             this.btnRefresh.TabIndex = 25;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // SelectedNameLabel
-            // 
-            this.SelectedNameLabel.AutoSize = true;
-            this.SelectedNameLabel.BackColor = System.Drawing.Color.Beige;
-            this.SelectedNameLabel.Location = new System.Drawing.Point(587, 5);
-            this.SelectedNameLabel.Name = "SelectedNameLabel";
-            this.SelectedNameLabel.Size = new System.Drawing.Size(95, 17);
-            this.SelectedNameLabel.TabIndex = 28;
-            this.SelectedNameLabel.Text = "Name = None";
-            // 
-            // SelectedIdLabel
-            // 
-            this.SelectedIdLabel.AutoSize = true;
-            this.SelectedIdLabel.BackColor = System.Drawing.Color.Beige;
-            this.SelectedIdLabel.Location = new System.Drawing.Point(488, 5);
-            this.SelectedIdLabel.Name = "SelectedIdLabel";
-            this.SelectedIdLabel.Size = new System.Drawing.Size(71, 17);
-            this.SelectedIdLabel.TabIndex = 26;
-            this.SelectedIdLabel.Text = "ID = None";
-            // 
-            // SelectedLabel
-            // 
-            this.SelectedLabel.AutoSize = true;
-            this.SelectedLabel.BackColor = System.Drawing.Color.Beige;
-            this.SelectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedLabel.Location = new System.Drawing.Point(386, 5);
-            this.SelectedLabel.Name = "SelectedLabel";
-            this.SelectedLabel.Size = new System.Drawing.Size(76, 17);
-            this.SelectedLabel.TabIndex = 25;
-            this.SelectedLabel.Text = "Selected:";
             // 
             // menuStrip1
             // 
@@ -473,7 +473,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1276, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1276, 26);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -483,23 +483,23 @@
             this.enableScaleFeature.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enableScale,
             this.disableScale});
-            this.enableScaleFeature.Font = new System.Drawing.Font("Verdana", 10F);
+            this.enableScaleFeature.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableScaleFeature.Name = "enableScaleFeature";
-            this.enableScaleFeature.Size = new System.Drawing.Size(197, 21);
+            this.enableScaleFeature.Size = new System.Drawing.Size(209, 22);
             this.enableScaleFeature.Tag = "0";
             this.enableScaleFeature.Text = "Automated Scale Feature";
             // 
             // enableScale
             // 
             this.enableScale.Name = "enableScale";
-            this.enableScale.Size = new System.Drawing.Size(126, 22);
+            this.enableScale.Size = new System.Drawing.Size(128, 22);
             this.enableScale.Text = "Enable";
             this.enableScale.Click += new System.EventHandler(this.enableScaleToolStripMenuItem1_Click);
             // 
             // disableScale
             // 
             this.disableScale.Name = "disableScale";
-            this.disableScale.Size = new System.Drawing.Size(126, 22);
+            this.disableScale.Size = new System.Drawing.Size(128, 22);
             this.disableScale.Text = "Disable";
             this.disableScale.Click += new System.EventHandler(this.disableScaleToolStripMenuItem_Click);
             // 

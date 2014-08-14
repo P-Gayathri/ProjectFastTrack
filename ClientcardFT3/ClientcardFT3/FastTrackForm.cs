@@ -54,12 +54,13 @@ namespace ClientcardFB3
             dgvFT.Columns["colLbsTEFAP"].Visible = CCFBPrefs.EnableTEFAP;
             dgvFT.Columns["colLbsSuppl"].Visible = CCFBPrefs.EnableSupplemental;
 
-            enableScaleFeature.Visible = tbScaleWt.Visible = tbTotalScaleWt.Visible =
+            enableScaleFeature.Visible = tbScaleWt.Visible = tbTotalScaleWt.Visible =clearTotalWt.Visible=
             btnRefresh.Visible = addWeightButton.Visible = totalWeightText.Visible = scaleWeightText.Visible = CCFBPrefs.EnableFTscale;       //Automated scale feature <7-27-2014>
 
             fillForm();
             StartTimer();
             initScalePort();
+            dgvFT.ClearSelection();
 
             enableScale.Enabled = false;
             //tbTotBabyDL.Visible = false;
@@ -193,8 +194,9 @@ namespace ClientcardFB3
                 }
                 if (rowCount > 0)
                 {
-                    dgvFT.CurrentCell = dgvFT[dgvFT.Columns["colHHID"].Index, 0]; 
+                    dgvFT.CurrentCell = dgvFT[dgvFT.Columns["colHHID"].Index, 0];
                     dgvFT.Focus();
+                    dgvFT.ClearSelection();
                 }
             }
         }
@@ -274,7 +276,7 @@ namespace ClientcardFB3
             }
         }
 
-       private void dgvFT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dgvFT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             tsslblMsg.Text = "";
             int testTrxId = Convert.ToInt32(dgvFT.Rows[e.RowIndex].Tag.ToString());
@@ -351,6 +353,7 @@ namespace ClientcardFB3
             addWeightButton.Visible = true;
             totalWeightText.Visible = true;
             scaleWeightText.Visible = true;
+            clearTotalWt.Visible = true;
 
             enableScale.Enabled = false;
             disableScale.Enabled = true;
@@ -364,6 +367,7 @@ namespace ClientcardFB3
             addWeightButton.Visible = false;
             totalWeightText.Visible = false;
             scaleWeightText.Visible = false;
+            clearTotalWt.Visible = false;
 
             enableScale.Enabled = true;
             disableScale.Enabled = false;
@@ -373,13 +377,9 @@ namespace ClientcardFB3
             if (e.ColumnIndex < dgvFT.ColumnCount - 1 && e.ColumnIndex > dgvFT.ColumnCount - 7)
             {
                 DataGridViewRow dgvr = dgvFT.CurrentRow;
-                Int32 weightReading;   
+                Int32 weightReading;
                 int toBeSubtracted = 0;
-                if (e.ColumnIndex == 7)
-                {
-                    toBeSubtracted = Convert.ToInt32(dgvr.Cells[9].Value);
-                }
-
+                Int32 FinalWeight;
                 if (tbTotalScaleWt.Text != "0")
                 {
                     weightReading = Int32.Parse(tbTotalScaleWt.Text);
@@ -388,8 +388,22 @@ namespace ClientcardFB3
                 {
                     weightReading = Int32.Parse(tbScaleWt.Text);
                 }
-                Int32 FinalWeight = weightReading - toBeSubtracted;
-                dgvr.Cells[e.ColumnIndex].Value = (Int32)Math.Max(0,FinalWeight);
+                if (e.ColumnIndex == 7)
+                {
+                    toBeSubtracted = Convert.ToInt32(dgvr.Cells[9].Value);
+                }
+                if (CCFBPrefs.LbsIncludeCommodityWt)
+                {
+                    FinalWeight = weightReading - toBeSubtracted;
+                }
+                else
+                {
+                    FinalWeight = weightReading;
+                }
+                dgvr.Cells[e.ColumnIndex].Value = (Int32)Math.Max(0, FinalWeight);
+                timer.Stop();
+                tssStatus.BackColor = Color.Khaki;
+                tssStatus.Text = "EDITING";
             }
         }
 
