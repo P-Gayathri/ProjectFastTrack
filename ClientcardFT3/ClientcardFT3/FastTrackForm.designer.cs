@@ -140,12 +140,12 @@
             this.dgvFT.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvFT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFT.GridColor = System.Drawing.Color.DimGray;
-            this.dgvFT.Location = new System.Drawing.Point(0, 26);
+            this.dgvFT.Location = new System.Drawing.Point(0, 31);
             this.dgvFT.Name = "dgvFT";
             this.dgvFT.RowHeadersWidth = 10;
             this.dgvFT.RowTemplate.Height = 88;
             this.dgvFT.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFT.Size = new System.Drawing.Size(1276, 561);
+            this.dgvFT.Size = new System.Drawing.Size(1276, 556);
             this.dgvFT.TabIndex = 24;
             this.dgvFT.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvFT_CellBeginEdit);
             this.dgvFT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFT_CellEndEdit);
@@ -332,7 +332,7 @@
             this.lblFBName.Font = new System.Drawing.Font("Verdana", 14F);
             this.lblFBName.Location = new System.Drawing.Point(12, 14);
             this.lblFBName.Name = "lblFBName";
-            this.lblFBName.Size = new System.Drawing.Size(172, 23);
+            this.lblFBName.Size = new System.Drawing.Size(215, 29);
             this.lblFBName.TabIndex = 26;
             this.lblFBName.Text = "Food Bank Name";
             // 
@@ -361,7 +361,7 @@
             this.SelectedNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectedNameLabel.Location = new System.Drawing.Point(245, 62);
             this.SelectedNameLabel.Name = "SelectedNameLabel";
-            this.SelectedNameLabel.Size = new System.Drawing.Size(106, 20);
+            this.SelectedNameLabel.Size = new System.Drawing.Size(133, 25);
             this.SelectedNameLabel.TabIndex = 28;
             this.SelectedNameLabel.Text = "Name = None";
             // 
@@ -372,7 +372,7 @@
             this.SelectedIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectedIdLabel.Location = new System.Drawing.Point(147, 62);
             this.SelectedIdLabel.Name = "SelectedIdLabel";
-            this.SelectedIdLabel.Size = new System.Drawing.Size(81, 20);
+            this.SelectedIdLabel.Size = new System.Drawing.Size(100, 25);
             this.SelectedIdLabel.TabIndex = 26;
             this.SelectedIdLabel.Text = "ID = None";
             // 
@@ -383,7 +383,7 @@
             this.SelectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectedLabel.Location = new System.Drawing.Point(47, 62);
             this.SelectedLabel.Name = "SelectedLabel";
-            this.SelectedLabel.Size = new System.Drawing.Size(85, 20);
+            this.SelectedLabel.Size = new System.Drawing.Size(104, 25);
             this.SelectedLabel.TabIndex = 25;
             this.SelectedLabel.Text = "Selected:";
             // 
@@ -406,7 +406,7 @@
             this.scaleWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.scaleWeightText.Location = new System.Drawing.Point(569, 18);
             this.scaleWeightText.Name = "scaleWeightText";
-            this.scaleWeightText.Size = new System.Drawing.Size(95, 17);
+            this.scaleWeightText.Size = new System.Drawing.Size(95, 22);
             this.scaleWeightText.TabIndex = 32;
             this.scaleWeightText.Text = "Scale Weight";
             // 
@@ -427,10 +427,11 @@
             this.tbTotalScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.tbTotalScaleWt.Location = new System.Drawing.Point(747, 43);
             this.tbTotalScaleWt.Name = "tbTotalScaleWt";
-            this.tbTotalScaleWt.Size = new System.Drawing.Size(75, 35);
+            this.tbTotalScaleWt.Size = new System.Drawing.Size(75, 41);
             this.tbTotalScaleWt.TabIndex = 29;
             this.tbTotalScaleWt.Text = "0";
             this.tbTotalScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTotalScaleWt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTotalScaleWt_KeyPress);
             // 
             // totalWeightText
             // 
@@ -441,7 +442,7 @@
             this.totalWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.totalWeightText.Location = new System.Drawing.Point(747, 18);
             this.totalWeightText.Name = "totalWeightText";
-            this.totalWeightText.Size = new System.Drawing.Size(89, 17);
+            this.totalWeightText.Size = new System.Drawing.Size(89, 22);
             this.totalWeightText.TabIndex = 28;
             this.totalWeightText.Text = "Total Weight";
             // 
@@ -450,10 +451,11 @@
             this.tbScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.tbScaleWt.Location = new System.Drawing.Point(579, 39);
             this.tbScaleWt.Name = "tbScaleWt";
-            this.tbScaleWt.Size = new System.Drawing.Size(75, 35);
+            this.tbScaleWt.Size = new System.Drawing.Size(75, 41);
             this.tbScaleWt.TabIndex = 27;
             this.tbScaleWt.Text = "0";
             this.tbScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbScaleWt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbScaleWt_KeyPress);
             // 
             // btnRefresh
             // 
@@ -473,7 +475,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1276, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(1276, 31);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -485,21 +487,21 @@
             this.disableScale});
             this.enableScaleFeature.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableScaleFeature.Name = "enableScaleFeature";
-            this.enableScaleFeature.Size = new System.Drawing.Size(209, 22);
+            this.enableScaleFeature.Size = new System.Drawing.Size(261, 27);
             this.enableScaleFeature.Tag = "0";
             this.enableScaleFeature.Text = "Automated Scale Feature";
             // 
             // enableScale
             // 
             this.enableScale.Name = "enableScale";
-            this.enableScale.Size = new System.Drawing.Size(128, 22);
+            this.enableScale.Size = new System.Drawing.Size(151, 28);
             this.enableScale.Text = "Enable";
             this.enableScale.Click += new System.EventHandler(this.enableScaleToolStripMenuItem1_Click);
             // 
             // disableScale
             // 
             this.disableScale.Name = "disableScale";
-            this.disableScale.Size = new System.Drawing.Size(128, 22);
+            this.disableScale.Size = new System.Drawing.Size(151, 28);
             this.disableScale.Text = "Disable";
             this.disableScale.Click += new System.EventHandler(this.disableScaleToolStripMenuItem_Click);
             // 
@@ -549,7 +551,7 @@
             // 
             // FastTrackForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(1276, 682);

@@ -491,6 +491,18 @@ namespace ClientcardFB3
             //dgvFT.Columns[dgvFT.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvFT.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+
+        // Allow only Digits or Backspace in the weight text boxes
+        // For everything else, signal that the event is already handled
+        private void tbScaleWt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void tbTotalScaleWt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
     }
 }
 
