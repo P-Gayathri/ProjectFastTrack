@@ -380,7 +380,7 @@ namespace ClientcardFB3
                 Int32 weightReading;
                 int toBeSubtracted = 0;
                 Int32 FinalWeight;
-                if (tbTotalScaleWt.Text != "0")
+                if (string.IsNullOrEmpty(tbTotalScaleWt.Text) &&  (tbTotalScaleWt.Text != "0"))
                 {
                     weightReading = Int32.Parse(tbTotalScaleWt.Text);
                 }
@@ -409,10 +409,18 @@ namespace ClientcardFB3
 
         private void addWeightButton_Click(object sender, EventArgs e)              //Add button
         {
-            if (tbScaleWt.Text != "0")
+            Int32 totalValue;
+            if (!string.IsNullOrEmpty(tbScaleWt.Text))
             {
                 Int32 currValue = Int32.Parse(tbScaleWt.Text);
-                Int32 totalValue = Int32.Parse(tbTotalScaleWt.Text);
+                if (!string.IsNullOrEmpty(tbTotalScaleWt.Text))
+                {
+                    totalValue = Int32.Parse(tbTotalScaleWt.Text);
+                }
+                else
+                {
+                    totalValue = 0;
+                }
                 totalValue += currValue;
                 tbTotalScaleWt.Text = totalValue.ToString();
             }

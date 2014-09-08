@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using HidLibrary;
 using System.Threading;
 
+ //Ref: SharpDevelop < nricciar>
+
 namespace ClientcardFT3
 {
 
@@ -91,9 +93,9 @@ namespace ClientcardFT3
                 inData = scale.Read(250);
 
                 weight = (Convert.ToDecimal(inData.Data[4]) +
-                    Convert.ToDecimal(inData.Data[5]) * 256) *
-                    Convert.ToDecimal(Math.Pow(10, (sbyte)inData.Data[3]));
-
+                            Convert.ToDecimal(inData.Data[5]) * 256) *
+                            Convert.ToDecimal(Math.Pow(10, (sbyte)inData.Data[3]));
+                        
                 Convert.ToInt16(inData.Data[2]);
 
                 isStable = inData.Data[1] == 0x4;
