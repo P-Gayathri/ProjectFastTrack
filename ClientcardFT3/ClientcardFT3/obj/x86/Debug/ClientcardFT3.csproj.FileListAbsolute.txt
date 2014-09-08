@@ -1,43 +1,11 @@
-c:\users\kcraig\documents\visual studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ResolveAssemblyReference.cache
-c:\users\kcraig\documents\visual studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.FastTrackForm.resources
-c:\users\kcraig\documents\visual studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.Properties.Resources.resources
-c:\users\kcraig\documents\visual studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\GenerateResource.read.1.tlog
-c:\users\kcraig\documents\visual studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Users\KCraig\Documents\Visual Studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.LoginForm.resources
-C:\Users\KCraig\Documents\Visual Studio 2010\Projects\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.exe
-C:\Users\KCraig\Documents\Visual Studio 2010\Projects\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.pdb
-C:\Users\KCraig\Documents\Visual Studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.exe
-C:\Users\KCraig\Documents\Visual Studio 2010\Projects\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.pdb
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.exe
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.pdb
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ResolveAssemblyReference.cache
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.LoginForm.resources
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.FastTrackForm.resources
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.Properties.Resources.resources
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\GenerateResource.read.1.tlog
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\obj\x86\Debug\GenerateResource.write.1.tlog
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.exe
-E:\Users\Public\ClientcardFB3\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.pdb
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.exe
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.pdb
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\bin\Debug\HidLibrary.dll
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.LoginForm.resources
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.FastTrackForm.resources
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.Properties.Resources.resources
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csproj.GenerateResource.Cache
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.exe
-F:\Gayathri\Academics\SummerInternship2014\FoodBankProject\FoodBankProjectSourcecode\FB3SourceBackup2014-07-17\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.pdb
-C:\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.LoginForm.resources
-C:\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.FastTrackForm.resources
-C:\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.Properties.Resources.resources
-C:\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csproj.GenerateResource.Cache
-C:\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.exe
-C:\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.pdb
-C:\ClientcardFT3\ClientcardFT3\bin\Debug\HidLibrary.dll
-C:\ClientcardFT3\ClientcardFT3\bin\Debug\HidLibrary.pdb
-C:\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.exe
-C:\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.pdb
-C:\ClientcardFT3\ClientcardFT3\bin\Debug\FastTrackForm.resx
-C:\ClientcardFT3\ClientcardFT3\bin\Debug\FastTrackForm.cs
-C:\ClientcardFT3\ClientcardFT3\bin\Debug\FastTrackForm.designer.cs
-C:\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csprojResolveAssemblyReference.cache
+F:\Gayathri\Academics\GitHub\FastTrackProject\ClientCardFT3WithAllReferences\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csprojResolveAssemblyReference.cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.exe
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\bin\Debug\ClientcardFT3.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\bin\Debug\HidLibrary.dll
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.LoginForm.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFB3.FastTrackForm.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.Properties.Resources.resources
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csproj.GenerateResource.Cache
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.exe
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.pdb
+F:\Gayathri\Academics\GitHub\ProjectFastTrack\ClientcardFT3\ClientcardFT3\obj\x86\Debug\ClientcardFT3.csprojResolveAssemblyReference.cache

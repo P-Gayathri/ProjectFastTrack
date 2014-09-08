@@ -359,7 +359,7 @@
             this.SelectedNameLabel.AutoSize = true;
             this.SelectedNameLabel.BackColor = System.Drawing.Color.Beige;
             this.SelectedNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedNameLabel.Location = new System.Drawing.Point(245, 62);
+            this.SelectedNameLabel.Location = new System.Drawing.Point(202, 62);
             this.SelectedNameLabel.Name = "SelectedNameLabel";
             this.SelectedNameLabel.Size = new System.Drawing.Size(106, 20);
             this.SelectedNameLabel.TabIndex = 28;
@@ -370,7 +370,7 @@
             this.SelectedIdLabel.AutoSize = true;
             this.SelectedIdLabel.BackColor = System.Drawing.Color.Beige;
             this.SelectedIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedIdLabel.Location = new System.Drawing.Point(147, 62);
+            this.SelectedIdLabel.Location = new System.Drawing.Point(110, 62);
             this.SelectedIdLabel.Name = "SelectedIdLabel";
             this.SelectedIdLabel.Size = new System.Drawing.Size(81, 20);
             this.SelectedIdLabel.TabIndex = 26;
@@ -381,7 +381,7 @@
             this.SelectedLabel.AutoSize = true;
             this.SelectedLabel.BackColor = System.Drawing.Color.Beige;
             this.SelectedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedLabel.Location = new System.Drawing.Point(47, 62);
+            this.SelectedLabel.Location = new System.Drawing.Point(16, 62);
             this.SelectedLabel.Name = "SelectedLabel";
             this.SelectedLabel.Size = new System.Drawing.Size(85, 20);
             this.SelectedLabel.TabIndex = 25;
@@ -389,7 +389,7 @@
             // 
             // clearTotalWt
             // 
-            this.clearTotalWt.Location = new System.Drawing.Point(850, 43);
+            this.clearTotalWt.Location = new System.Drawing.Point(776, 53);
             this.clearTotalWt.Name = "clearTotalWt";
             this.clearTotalWt.Size = new System.Drawing.Size(71, 35);
             this.clearTotalWt.TabIndex = 33;
@@ -404,7 +404,7 @@
             this.scaleWeightText.Cursor = System.Windows.Forms.Cursors.No;
             this.scaleWeightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scaleWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.scaleWeightText.Location = new System.Drawing.Point(569, 18);
+            this.scaleWeightText.Location = new System.Drawing.Point(527, 25);
             this.scaleWeightText.Name = "scaleWeightText";
             this.scaleWeightText.Size = new System.Drawing.Size(95, 17);
             this.scaleWeightText.TabIndex = 32;
@@ -414,7 +414,7 @@
             // 
             this.addWeightButton.BackColor = System.Drawing.Color.AntiqueWhite;
             this.addWeightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addWeightButton.Location = new System.Drawing.Point(681, 43);
+            this.addWeightButton.Location = new System.Drawing.Point(622, 53);
             this.addWeightButton.Name = "addWeightButton";
             this.addWeightButton.Size = new System.Drawing.Size(38, 35);
             this.addWeightButton.TabIndex = 31;
@@ -425,7 +425,7 @@
             // tbTotalScaleWt
             // 
             this.tbTotalScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbTotalScaleWt.Location = new System.Drawing.Point(747, 43);
+            this.tbTotalScaleWt.Location = new System.Drawing.Point(684, 53);
             this.tbTotalScaleWt.Name = "tbTotalScaleWt";
             this.tbTotalScaleWt.Size = new System.Drawing.Size(75, 35);
             this.tbTotalScaleWt.TabIndex = 29;
@@ -439,7 +439,7 @@
             this.totalWeightText.Cursor = System.Windows.Forms.Cursors.No;
             this.totalWeightText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalWeightText.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.totalWeightText.Location = new System.Drawing.Point(747, 18);
+            this.totalWeightText.Location = new System.Drawing.Point(684, 25);
             this.totalWeightText.Name = "totalWeightText";
             this.totalWeightText.Size = new System.Drawing.Size(89, 17);
             this.totalWeightText.TabIndex = 28;
@@ -448,7 +448,7 @@
             // tbScaleWt
             // 
             this.tbScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbScaleWt.Location = new System.Drawing.Point(579, 39);
+            this.tbScaleWt.Location = new System.Drawing.Point(527, 53);
             this.tbScaleWt.Name = "tbScaleWt";
             this.tbScaleWt.Size = new System.Drawing.Size(75, 35);
             this.tbScaleWt.TabIndex = 27;
@@ -457,7 +457,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(482, 39);
+            this.btnRefresh.Location = new System.Drawing.Point(435, 53);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(74, 35);
             this.btnRefresh.TabIndex = 25;
