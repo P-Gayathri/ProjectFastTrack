@@ -32,7 +32,6 @@ namespace ClientcardFB3
 
         public static bool EnableHomeDeliv = false;
         #region Features
-        public static bool EnableFTscale = true;
         public static bool EnableFoodServices = true;
         public static bool EnableAppointments = false;
         public static bool EnableFoodDonations = true;
@@ -86,6 +85,11 @@ namespace ClientcardFB3
         public static int AlertMinimumMonths = 0;
         public static bool IncludeLbsOnSvcList = true;
         public static bool AllowLbsManualEntry = false;
+        #endregion
+
+        #region Automated Scale Feature
+        public static bool EnableFTscale = true;
+        public static bool LbsIncludeCommodityWt = true;
         #endregion
 
         #region Add Client Options
