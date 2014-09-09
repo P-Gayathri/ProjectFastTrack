@@ -330,9 +330,9 @@ namespace ClientcardFB3
                 s.Disconnect();
                 decimal roundedWeight = weight.HasValue ? Math.Round(weight.Value) : 0;
                 tbScaleWt.Text = Convert.ToString(roundedWeight);
-                if (tbTotalScaleWt.Text == "0")
+                if (string.IsNullOrEmpty(tbTotalScaleWt.Text) && (tbTotalScaleWt.Text == "0"))
                 {
-                    tbTotalScaleWt.Text = Convert.ToString(roundedWeight);
+                    tbTotalScaleWt.Text = tbScaleWt.Text;
                 }
             }
             else
@@ -456,7 +456,7 @@ namespace ClientcardFB3
 
         private void clearTotalWt_Click(object sender, EventArgs e)
         {
-            initScalePort();
+            tbScaleWt.Text = "0";
             tbTotalScaleWt.Text = "0";
         }
         private void dgvFT_Resize(object sender, EventArgs e)
