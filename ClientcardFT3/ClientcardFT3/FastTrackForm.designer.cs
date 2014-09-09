@@ -427,11 +427,11 @@
             this.tbTotalScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.tbTotalScaleWt.Location = new System.Drawing.Point(747, 43);
             this.tbTotalScaleWt.Name = "tbTotalScaleWt";
+            this.tbTotalScaleWt.ReadOnly = true;
             this.tbTotalScaleWt.Size = new System.Drawing.Size(75, 35);
             this.tbTotalScaleWt.TabIndex = 29;
             this.tbTotalScaleWt.Text = "0";
             this.tbTotalScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbTotalScaleWt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbScaleWt_KeyPress);
             // 
             // totalWeightText
             // 
@@ -451,11 +451,11 @@
             this.tbScaleWt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.tbScaleWt.Location = new System.Drawing.Point(579, 43);
             this.tbScaleWt.Name = "tbScaleWt";
+            this.tbScaleWt.ReadOnly = true;
             this.tbScaleWt.Size = new System.Drawing.Size(75, 35);
             this.tbScaleWt.TabIndex = 27;
             this.tbScaleWt.Text = "0";
             this.tbScaleWt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbScaleWt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbScaleWt_KeyPress);
             // 
             // btnRefresh
             // 
